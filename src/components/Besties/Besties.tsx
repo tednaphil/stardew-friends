@@ -1,6 +1,10 @@
 import './Besties.css';
 
 function Besties() {
+    return (
+        <>
+        </>
+    )
 
 }
 
