@@ -7,7 +7,7 @@ const getCharacters = async () => {
         }
         return await response.json();
     } catch (error: any) {
-        console.log(error.message)
+        console.log('API CALLS catch block', error.message)
         throw error
     }
 

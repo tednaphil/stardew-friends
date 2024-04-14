@@ -1,6 +1,11 @@
 import './Besties.css';
+import type { Character } from '../App/App';
 
-function Besties() {
+interface Props {
+    besties: Character[]
+}
+
+function Besties({besties}: Props) {
     return (
         <>
         </>

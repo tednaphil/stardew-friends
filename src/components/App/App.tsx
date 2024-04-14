@@ -9,18 +9,18 @@ import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getCharacters } from '../../apiCalls';
 
+export type Character = {
+  id: string
+  name: string
+  birthday: string
+  hobbies: string[]
+  avatar: string
+}
 
 function App() {
   const [error, setError] = useState<any>('');
   const [characters, setCharacters] = useState<Character[]>([]);
-
-  type Character = {
-    id: string
-    name: string
-    birthday: string
-    hobbies: string[]
-    avatar: string
-  }
+  const [besties, setBesties] = useState<Character[]>([]);
 
   useEffect(() => {
     fetchCharacters();
@@ -40,9 +40,9 @@ function App() {
       <Nav />
       <main className="main">
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home characters={characters}/>} />
           <Route path='/characters/:id' element={<Profile />} />
-          <Route path='/besties' element={<Besties />} />
+          <Route path='/besties' element={<Besties besties={besties}/>} />
           <Route path='/*' element={<Error />} />
         </Routes>
       </main>
