@@ -1,8 +1,8 @@
 import './Besties.css';
-import type { Character } from '../App/App';
+import type { Char } from '../App/App';
 
 interface Props {
-    besties: Character[]
+    besties: Char[]
 }
 
 function Besties({besties}: Props) {

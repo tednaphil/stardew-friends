@@ -9,7 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getCharacters } from '../../apiCalls';
 
-export type Character = {
+export type Char = {
   id: string
   name: string
   birthday: string
@@ -19,8 +19,8 @@ export type Character = {
 
 function App() {
   const [error, setError] = useState<any>('');
-  const [characters, setCharacters] = useState<Character[]>([]);
-  const [besties, setBesties] = useState<Character[]>([]);
+  const [characters, setCharacters] = useState<Char[]>([]);
+  const [besties, setBesties] = useState<Char[]>([]);
 
   useEffect(() => {
     fetchCharacters();
@@ -40,10 +40,10 @@ function App() {
       <Nav />
       <main className="main">
         <Routes>
-          <Route path='/' element={<Home characters={characters}/>} />
+          <Route path='/' element={<Home characters={characters} error={error} />} />
           <Route path='/characters/:id' element={<Profile />} />
           <Route path='/besties' element={<Besties besties={besties}/>} />
-          <Route path='/*' element={<Error />} />
+          <Route path='/*' element={<Error error={error}/>} />
         </Routes>
       </main>
 

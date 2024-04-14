@@ -1,7 +1,12 @@
 import './Error.css'
-function Error() {
+
+interface Props {
+    error: string
+}
+function Error({error}: Props) {
     return (
         <>
+            <h2>{error}</h2>
         </>
     )
 
