@@ -6,6 +6,7 @@
 
 h1 {
   font-family: "Press Start 2P", sans-serif;
+  color: var(--main-text-color);
 }
 
 .App {

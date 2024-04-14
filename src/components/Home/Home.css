@@ -1,0 +1,22 @@
+.character-card {
+    display: inline-block;
+    width: max-content;
+    & :hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-text-color)
+}
+
+/* section {
+    display: inline-block;
+    width: max-content;
+    & :hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+} */

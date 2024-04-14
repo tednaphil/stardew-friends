@@ -1,19 +1,21 @@
 import './Character.css';
-import { Link } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 // import type { Char } from '../App/App';
 
-interface Props {
-    id: string
-    name: string
-    avatar: string
-}
+// interface Props {
+//     id: string
+//     name: string
+//     avatar: string
+// }
 
-function Character({id, name, avatar}: Props) {
+function Character(/*{id, name, avatar}: Props*/) {
     return (
-        <section className='character-card'>
-            <img src={avatar}/>
-            <p>{name}</p>
-        </section>
+        <>
+        {/* // <section className='character-card'>
+        //     <img src={avatar}/>
+        //     <p>{name}</p>
+        // </section> */}
+        </>
     )
 
 }
