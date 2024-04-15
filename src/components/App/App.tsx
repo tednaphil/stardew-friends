@@ -22,10 +22,22 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [characters, setCharacters] = useState<Char[]>([]);
   const [besties, setBesties] = useState<Char[]>([]);
+  const [sessionBesties, setSessionBesties] = useState<Char[]>([]);
 
   useEffect(() => {
     fetchCharacters();
+    // @ts-expect-error
+    const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+    console.log('storedBesties?', storedBesties)
+    if (!storedBesties) {
+      setBesties([])
+    } else {
+      setBesties(storedBesties)
+    }
+    // setSessionBesties(storedBesties)
   }, [])
+
+  console.log('besties', besties)
 
   const fetchCharacters = async () => {
     try {
@@ -38,9 +50,56 @@ function App() {
   }
 
   const addBestie = (newBestie: Char) => {
-    //if bestie is not already in the array, add them
-    setBesties([...besties, newBestie])
+    // const ids = besties.map(bestie => bestie.id)
+    if (besties.length) {
+      const isBestie = besties.find(bestie => newBestie.id === bestie.id);
+      if (!isBestie) {
+        sessionStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
+        // @ts-expect-error
+        const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+        console.log({storedBesties})
+        setBesties(storedBesties)
+      } else if(isBestie) {
+        const name = isBestie.name
+        alert(`${name} is already your friend!`)
+        //refactor to either have button removed/disabled or have diff alert system
+      }
+    } else {
+      sessionStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
+        // @ts-expect-error
+        const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+        console.log({storedBesties})
+        setBesties(storedBesties)
+
+    }
+
+    
+      // sessionStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
+      // // @ts-expect-error
+      // const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+      // console.log({storedBesties})
+      // setBesties(storedBesties)
+    
+    //if bestie is not already in the array, add them and do the things
+    // setBesties([...besties, newBestie])
+    // sessionStorage.clear();
+  
+    
   }
+
+  // useEffect(() => {
+  //   sessionStorage.clear();
+  //   sessionStorage.setItem('besties', JSON.stringify(besties));
+  //   // @ts-expect-error
+  //   const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+  //   console.log({storedBesties})
+  //   setSessionBesties(storedBesties)
+
+  // }, [besties])
+
+  // useEffect(() => {
+  //   sess
+  // }, [])
 
   return (
     <div className="App">
