@@ -8,28 +8,32 @@ interface Props {
 }
 
 function Profile({characters}: Props) {
-    // const charID = useParams().id
     const { id } = useParams<string>()
     //fetch individual character or find from app state?
+    //may need to fetch character to avoid reload errors since fetch happens on app mount - does reloading count as an unmounting phase?
     const chosenChar: Char | undefined = characters.find(char => char.id === id)
     const [character, setCharacter] = useState<Char | undefined>(chosenChar)
     const [loading, setLoading] = useState<boolean>(character ? false : true)
+    const hobbies = character?.hobbies.map(hobby => {
+        return (
+            <p>{hobby}</p>
+        )
+    })
 
     // useEffect(() => {
-    //     setCharacter(chosenChar)
-    // }, [])
-
-    // console.log(character)
-
-    useEffect(() => {
-        setLoading(false)
-    }, [character])
+    //     setLoading(false)
+    // }, [character])
 
     return (
         <>
-            {loading && <h2>Loading...</h2>}
-            {/* @ts-expect-error */}
-            <h2>{character.name}</h2>
+            {/* {loading && <h2>Loading...</h2>} */}
+            <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
+            <h2 className='profile-name'>{character?.name}</h2>
+            <h3>Birthday</h3>
+            <p className='birthday'>{character?.birthday}</p>
+            <h3>Hobbies</h3>
+            <section className='hobbies'>{hobbies}</section>
+            <button className='bestie-button'>Add Bestie</button>
         </>
     )
 
