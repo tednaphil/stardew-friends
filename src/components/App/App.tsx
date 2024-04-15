@@ -37,13 +37,18 @@ function App() {
     }
   }
 
+  const addBestie = (newBestie: Char) => {
+    //if bestie is not already in the array, add them
+    setBesties([...besties, newBestie])
+  }
+
   return (
     <div className="App">
       <Nav />
       <main className="main">
         <Routes>
           <Route path='/' element={<Home characters={characters} error={error} loading={loading} />} />
-          <Route path='/characters/:id' element={<Profile characters={characters}/>} />
+          <Route path='/characters/:id' element={<Profile characters={characters} addBestie={addBestie} besties={besties}/>} />
           <Route path='/besties' element={<Besties besties={besties}/>} />
           <Route path='/*' element={<Error error={error}/>} />
         </Routes>

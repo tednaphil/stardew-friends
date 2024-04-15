@@ -5,9 +5,11 @@ import { useState, useEffect } from 'react';
 
 interface Props {
     characters: Char[]
+    besties: Char[]
+    addBestie: (newBestie: Char) => void
 }
 
-function Profile({characters}: Props) {
+function Profile({characters, addBestie, besties}: Props) {
     const { id } = useParams<string>()
     //fetch individual character or find from app state?
     //may need to fetch character to avoid reload errors since fetch happens on app mount - does reloading count as an unmounting phase?
@@ -24,6 +26,11 @@ function Profile({characters}: Props) {
     //     setLoading(false)
     // }, [character])
 
+    const handleClick = (/*e:any, */newBestie: Char) => {
+        // e.preventDefault()
+        addBestie(newBestie)
+    }
+
     return (
         <>
             {/* {loading && <h2>Loading...</h2>} */}
@@ -33,7 +40,8 @@ function Profile({characters}: Props) {
             <p className='birthday'>{character?.birthday}</p>
             <h3>Hobbies</h3>
             <section className='hobbies'>{hobbies}</section>
-            <button className='bestie-button'>Add Bestie</button>
+            {/* @ts-expect-error */}
+            <button className='bestie-button' onClick={() => handleClick(character)}>Add Bestie</button>
         </>
     )
 
