@@ -19,6 +19,7 @@ export type Char = {
 
 function App() {
   const [error, setError] = useState<any>('');
+  const [loading, setLoading] = useState(true)
   const [characters, setCharacters] = useState<Char[]>([]);
   const [besties, setBesties] = useState<Char[]>([]);
 
@@ -29,7 +30,8 @@ function App() {
   const fetchCharacters = async () => {
     try {
       const characters = await getCharacters()
-      setCharacters(characters)
+      setCharacters(characters);
+      setLoading(false);
     } catch(error) {
         setError(`${error}`)
     }
@@ -40,7 +42,7 @@ function App() {
       <Nav />
       <main className="main">
         <Routes>
-          <Route path='/' element={<Home characters={characters} error={error} />} />
+          <Route path='/' element={<Home characters={characters} error={error} loading={loading} />} />
           <Route path='/characters/:id' element={<Profile characters={characters}/>} />
           <Route path='/besties' element={<Besties besties={besties}/>} />
           <Route path='/*' element={<Error error={error}/>} />
