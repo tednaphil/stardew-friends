@@ -1,9 +1,3 @@
-/* @font-face {
-  font-family: "Press Start P2";
-  src: url('../..//fonts/Press_Start_2P/PressStart2P-Regular.ttf') format('ttf');
-  font-weight: normal;
-} */
-
 h1 {
   font-family: "Press Start 2P", sans-serif;
   color: var(--main-text-color);

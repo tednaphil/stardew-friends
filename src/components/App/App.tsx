@@ -41,7 +41,7 @@ function App() {
       <main className="main">
         <Routes>
           <Route path='/' element={<Home characters={characters} error={error} />} />
-          <Route path='/characters/:id' element={<Profile />} />
+          <Route path='/characters/:id' element={<Profile characters={characters}/>} />
           <Route path='/besties' element={<Besties besties={besties}/>} />
           <Route path='/*' element={<Error error={error}/>} />
         </Routes>

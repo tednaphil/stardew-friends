@@ -1,3 +1,6 @@
+.character-cards {
+    text-align: center;
+}
 .character-card {
     display: inline-block;
     width: max-content;
