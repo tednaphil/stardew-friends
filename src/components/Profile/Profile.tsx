@@ -5,6 +5,7 @@ import type { Char, Friend } from '../App/App';
 import { useState, useEffect } from 'react';
 import { getCharacter } from '../../apiCalls';
 import Junimo from '../../images/Junimo.gif';
+import { UserPlus, UserX } from 'react-feather';
 
 
 interface Props {
@@ -85,14 +86,14 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
             {error ? <Error error={error}/> : <article className='char-profile'>
             <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
             <h2 className='profile-name'>{character?.name}</h2>
+            {/* @ts-expect-error */}
+            {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>}
             <h3>Birthday</h3>
             <p className='birthday'>{character?.birthday}</p>
             <h3>Hobbies</h3>
             <section className='hobbies'>{hobbies}</section>
             <h3>Loved Gifts</h3>
             <section className='gifts'>{gifts}</section>
-            {/* @ts-expect-error */}
-            {isBestie ? <button className='remove-button' onClick={() => handleRemoveClick(character)}>Remove Bestie</button> : <button className='bestie-button' onClick={() => handleAddClick(character)}>Add Bestie</button>}
             </article>}
         </>
     )
