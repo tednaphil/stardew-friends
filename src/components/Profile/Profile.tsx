@@ -11,9 +11,10 @@ interface Props {
     besties: Friend[]
     addBestie: (newBestie: Friend) => void
     removeBestie: (id: string) => void
+    setSearch: (query: string) => void
 }
 
-function Profile({addBestie, removeBestie, besties}: Props) {
+function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
     const { id } = useParams<string>()
     const [character, setCharacter] = useState<Char | null>(null)
     const [error, setError] = useState<string>('')
@@ -30,6 +31,8 @@ function Profile({addBestie, removeBestie, besties}: Props) {
     useEffect(() => {
         // @ts-expect-error
         fetchCharacter(id)
+        setSearch('')
+
     }, [])
 
     const fetchCharacter = async (id: string) => {

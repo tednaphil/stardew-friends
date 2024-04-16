@@ -114,7 +114,7 @@ function App() {
       <main className="main">
         <Routes>
           <Route path='/' element={<Home characters={characters} filteredChars={filteredChars} error={error} loading={loading} /*search={search} setSearch={setSearch}*/ />} />
-          <Route path='/characters/:id' element={<Profile addBestie={addBestie} removeBestie={removeBestie} besties={besties}/>} />
+          <Route path='/characters/:id' element={<Profile addBestie={addBestie} removeBestie={removeBestie} besties={besties} setSearch={setSearch}/>} />
           <Route path='/besties' element={<Besties besties={besties} setBesties={setBesties}/>} />
           <Route path='/*' element={<Error error={error}/>} />
         </Routes>
