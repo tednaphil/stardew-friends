@@ -34,6 +34,8 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [characters, setCharacters] = useState<Char[]>([]);
   const [besties, setBesties] = useState<Friend[]>([]);
+  const [search, setSearch] = useState<string>('');
+  const [filteredChars, setFilteredChars] = useState<Char[]>([])
   //make besties global state?
 
   useEffect(() => {
@@ -57,6 +59,7 @@ function App() {
       //function to add frienship property to characters
       // const updatedCharacters = friendify(characters)
       setCharacters(characters);
+      setFilteredChars(characters)
       setLoading(false);
     } catch(error) {
         setError(`${error}`)
@@ -92,13 +95,25 @@ function App() {
     setBesties(storedBesties)
   }
 
+  useEffect(() => {
+    filterChars(search)
+  }, [search])
+
+  const filterChars = (search: string) => {
+    setFilteredChars(
+      characters.filter(char =>
+        char.name.toLowerCase().includes(search.toLowerCase()),
+      ),
+    );
+  };
+
 
   return (
     <div className="App">
-      <Nav />
+      <Nav search={search} setSearch={setSearch}/>
       <main className="main">
         <Routes>
-          <Route path='/' element={<Home characters={characters} error={error} loading={loading} />} />
+          <Route path='/' element={<Home characters={characters} filteredChars={filteredChars} error={error} loading={loading} /*search={search} setSearch={setSearch}*/ />} />
           <Route path='/characters/:id' element={<Profile addBestie={addBestie} removeBestie={removeBestie} besties={besties}/>} />
           <Route path='/besties' element={<Besties besties={besties} setBesties={setBesties}/>} />
           <Route path='/*' element={<Error error={error}/>} />

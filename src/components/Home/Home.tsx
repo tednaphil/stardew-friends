@@ -11,11 +11,26 @@ interface Props {
     characters: Char[]
     error: string
     loading: boolean
+    filteredChars: Char[]
+    // search: string
+    // setSearch: (query: string) => void
 }
 
-function Home({ characters, error, loading }: Props) {
+function Home({ characters, filteredChars, error, loading }: Props) {
 
-    const cards = characters.map(element => {
+    // const cards = characters.map(element => {
+    //     const {id, name, avatar} = element
+    //     return (
+    //         <Link to={`/characters/${id}`} key={id}>
+    //             <section className='character-card'>
+    //             <img src={avatar} alt={`${name} avatar`} className='char-avatar'/>
+    //             <p>{name}</p>
+    //             </section>
+    //         </Link>
+    //     )
+    // })
+
+    const cards = filteredChars.map(element => {
         const {id, name, avatar} = element
         return (
             <Link to={`/characters/${id}`} key={id}>
