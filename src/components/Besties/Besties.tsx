@@ -4,9 +4,10 @@ import BestieCard from '../BestieCard/BestieCard';
 
 interface Props {
     besties: Friend[]
+    setBesties: (array: Friend[]) => void
 }
 
-function Besties({besties}: Props) {
+function Besties({besties, setBesties}: Props) {
     const bestieCards = besties.map(bestie => {
         return (
             <BestieCard 
@@ -15,6 +16,8 @@ function Besties({besties}: Props) {
                 avatar={bestie.avatar}
                 friendship={bestie.friendship}
                 id={bestie.id}
+                besties={besties}
+                setBesties={setBesties}
             />
         )
     })

@@ -34,6 +34,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [characters, setCharacters] = useState<Char[]>([]);
   const [besties, setBesties] = useState<Friend[]>([]);
+  //make besties global state?
 
   useEffect(() => {
     fetchCharacters();
@@ -99,7 +100,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home characters={characters} error={error} loading={loading} />} />
           <Route path='/characters/:id' element={<Profile addBestie={addBestie} removeBestie={removeBestie} besties={besties}/>} />
-          <Route path='/besties' element={<Besties besties={besties}/>} />
+          <Route path='/besties' element={<Besties besties={besties} setBesties={setBesties}/>} />
           <Route path='/*' element={<Error error={error}/>} />
         </Routes>
       </main>
