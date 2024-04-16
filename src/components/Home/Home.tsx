@@ -24,17 +24,8 @@ function Home({ characters, error, loading }: Props) {
                 <p>{name}</p>
                 </section>
             </Link>
-            // <Character
-            // id={element.id}
-            // name={element.name}
-            // avatar={element.avatar}
-            // key={element.id}
-            // />
         )
     })
-
-    // console.log(characters.length)
-    // why wasn't the characters.length! conditional working?
 
     return (
         <>
@@ -48,7 +39,6 @@ function Home({ characters, error, loading }: Props) {
         </section>
         </>
     )
-
 }
 
 export default Home

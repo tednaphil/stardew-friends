@@ -9,7 +9,13 @@ interface Props {
 function Besties({besties}: Props) {
     const bestieCards = besties.map(bestie => {
         return (
-            <p>{bestie.name}</p>
+            <BestieCard 
+                key={bestie.id}
+                name={bestie.name}
+                avatar={bestie.avatar}
+                id={bestie.id}
+            />
+            // <p>{bestie.name}</p>
         )
     })
     const bestieCount = (besties: Char[]): string => {
@@ -26,7 +32,7 @@ function Besties({besties}: Props) {
 
     return (
         <>
-        <h2>{bestieCount(besties)}</h2>
+        <h2 className='bestie-count'>{bestieCount(besties)}</h2>
         {bestieCards}
         </>
     )
