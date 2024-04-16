@@ -9,12 +9,12 @@ function Incrementer({friendship}: Props) {
     const [friendshipLevel, setFriendshipLevel] = useState(friendship)
 
     return (
-        <form className='incrementer'>
+        <section className='incrementer'>
             {/* on form submission, depending on the value of the button submitted, increment friendshipLevel up or down one */}
-            <button id='up-button'>+1</button>
+            <button id='up-button' onClick={() => setFriendshipLevel(friendshipLevel + 1)}>+1</button>
             <p>{friendshipLevel}</p>
-            <button id='down-button'>-1</button>
-        </form>
+            <button id='down-button' onClick={() => setFriendshipLevel(friendshipLevel - 1)}>-1</button>
+        </section>
     )
 }
 
