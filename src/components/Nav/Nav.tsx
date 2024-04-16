@@ -12,7 +12,7 @@ function Nav({search, setSearch}: Props) {
     return (
         <>
             <nav className='nav-bar'>
-                <h1>Stardew Friends</h1>
+                <h1 className='heading'>Stardew Friends</h1>
                 <NavLink to='/' id='home-link' className='links'>Home</NavLink>
                 <NavLink to='/besties' id='besties-link' className='links'>Besties</NavLink>
                 {pathname === '/' && <Search search={search} setSearch={setSearch}/>}

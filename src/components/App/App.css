@@ -1,7 +1,4 @@
-h1 {
-  font-family: "Press Start 2P", sans-serif;
-  color: var(--main-text-color);
-}
+
 
 .App {
   background-color: var(--main-bg-color);
@@ -10,7 +7,12 @@ h1 {
   border: 18px solid transparent;
   border-radius: 18px;
   border-image: url('../../images/border.png') 20 stretch;
+  font-family: 'Montserrat', sans-serif;
+}
 
+h1 {
+  font-family: 'Press Start 2P', sans-serif;
+  color: var(--main-text-color);
 }
 
 @keyframes App-logo-spin {
