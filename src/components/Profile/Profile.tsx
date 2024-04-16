@@ -68,8 +68,8 @@ function Profile({addBestie, removeBestie, besties}: Props) {
     return (
         <>
             {loading && <>
-            <img src={Junimo} alt='Dancing green Junimo' className='loading-image'/>
-            <h2 className='loading-message'>Loading...</h2>
+                <img src={Junimo} alt='Dancing green Junimo' className='loading-image'/>
+                <h2 className='loading-message'>Loading...</h2>
             </>}
             {error ? <Error error={error}/> : <article className='char-profile'>
             <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
@@ -83,7 +83,6 @@ function Profile({addBestie, removeBestie, besties}: Props) {
             {/* @ts-expect-error */}
             {isBestie ? <button className='remove-button' onClick={() => handleRemoveClick(character)}>Remove Bestie</button> : <button className='bestie-button' onClick={() => handleAddClick(character)}>Add Bestie</button>}
             </article>}
-    
         </>
     )
 }

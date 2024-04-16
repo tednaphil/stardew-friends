@@ -15,7 +15,6 @@ function Besties({besties}: Props) {
                 avatar={bestie.avatar}
                 id={bestie.id}
             />
-            // <p>{bestie.name}</p>
         )
     })
     const bestieCount = (besties: Char[]): string => {
@@ -31,10 +30,10 @@ function Besties({besties}: Props) {
     }
 
     return (
-        <>
-        <h2 className='bestie-count'>{bestieCount(besties)}</h2>
-        {bestieCards}
-        </>
+        <article className='besties'>
+            <h2 className='bestie-count'>{bestieCount(besties)}</h2>
+            {bestieCards}
+        </article>
     )
 
 }
