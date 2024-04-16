@@ -1,5 +1,6 @@
 import './BestieCard.css';
 import type { Friend } from '../App/App';
+import { Link } from 'react-router-dom';
 import Incrementer from '../Incrementer/Incrementer';
 
 interface Props {
@@ -17,10 +18,12 @@ function BestieCard({ id, name, avatar, friendship, besties, setBesties }: Props
         <section className='bestie-cards'>
             <img src={avatar}/>
             <p>{name}</p>
+            <Link to={`/characters/${id}`}>
+                <p>View Profile</p>
+            </Link>
             {/* <p>{`Friendship level: ${friendship}`}</p> */}
             {/* <Incrementer friendship={friendship} id={id} besties={besties} setBesties={setBesties}/> */}
             {/* remove bestie button */}
-            {/* view profile button */}
         </section>
     )
 }
