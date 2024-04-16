@@ -4,6 +4,7 @@ import Error from '../Error/Error';
 import type { Char } from '../App/App';
 import { useState, useEffect } from 'react';
 import { getCharacter } from '../../apiCalls';
+import Junimo from '../../images/Junimo.gif';
 
 interface Props {
     besties: Char[]
@@ -60,7 +61,10 @@ function Profile({addBestie, removeBestie, besties}: Props) {
 
     return (
         <>
-            {loading && <h2>Loading...</h2>}
+            {loading && <>
+            <img src={Junimo} alt='Dancing green Junimo' className='loading-image'/>
+            <h2>Loading...</h2>
+            </>}
             {error ? <Error error={error}/> : <>
             <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
             <h2 className='profile-name'>{character?.name}</h2>

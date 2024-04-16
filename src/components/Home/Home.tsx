@@ -4,6 +4,8 @@ import Error from '../Error/Error';
 import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import Character from '../Character/Character';
+import Junimo from '../../images/Junimo.gif';
+
 
 interface Props {
     characters: Char[]
@@ -36,7 +38,10 @@ function Home({ characters, error, loading }: Props) {
 
     return (
         <>
-        {loading && <h2>Loading...</h2>}
+        {loading && <>
+            <img src={Junimo} alt='Dancing green Junimo' className='loading-image'/>
+            <h2>Loading...</h2>
+            </>}
         {error && <Error error={error}/>}
         <section className="character-cards">
             {cards}

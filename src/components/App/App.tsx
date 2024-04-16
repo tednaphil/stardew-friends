@@ -9,6 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getCharacters } from '../../apiCalls';
 
+
 export type Char = {
   id: string
   name: string
@@ -37,6 +38,10 @@ function App() {
   const fetchCharacters = async () => {
     try {
       const characters = await getCharacters()
+      // setTimeout(() => {
+      //   setLoading(false)
+      //   setCharacters(characters)
+      // }, 5000)
       setCharacters(characters);
       setLoading(false);
     } catch(error) {
