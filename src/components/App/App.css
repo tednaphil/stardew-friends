@@ -1,4 +1,17 @@
+h1 {
+  font-family: "Press Start 2P", sans-serif;
+  color: var(--main-text-color);
+}
 
+.App {
+  background-color: var(--main-bg-color);
+  width: 90%;
+  margin: 15px auto;
+  border: 18px solid transparent;
+  border-radius: 18px;
+  border-image: url('../../images/border.png') 20 stretch;
+
+}
 
 @keyframes App-logo-spin {
   from {
