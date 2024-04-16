@@ -50,7 +50,6 @@ function App() {
   }
 
   const addBestie = (newBestie: Char) => {
-    // const ids = besties.map(bestie => bestie.id)
     if (besties.length) {
       const isBestie = besties.find(bestie => newBestie.id === bestie.id);
       if (!isBestie) {
@@ -70,21 +69,16 @@ function App() {
         const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
         console.log({storedBesties})
         setBesties(storedBesties)
-
     }
+  }
 
-    
-      // sessionStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
-      // // @ts-expect-error
-      // const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
-      // console.log({storedBesties})
-      // setBesties(storedBesties)
-    
-    //if bestie is not already in the array, add them and do the things
-    // setBesties([...besties, newBestie])
-    // sessionStorage.clear();
-  
-    
+  const removeBestie = (id: string) => {
+    const newBesties = besties.filter(bestie => bestie.id !== id);
+    sessionStorage.setItem('besties', JSON.stringify(newBesties));
+    // @ts-expect-error
+    const storedBesties= JSON.parse(sessionStorage.getItem('besties'));
+    setBesties(storedBesties)
+    console.log('remove function besties', besties)
   }
 
   // useEffect(() => {
@@ -97,9 +91,6 @@ function App() {
 
   // }, [besties])
 
-  // useEffect(() => {
-  //   sess
-  // }, [])
 
   return (
     <div className="App">
@@ -107,7 +98,7 @@ function App() {
       <main className="main">
         <Routes>
           <Route path='/' element={<Home characters={characters} error={error} loading={loading} />} />
-          <Route path='/characters/:id' element={<Profile characters={characters} addBestie={addBestie} besties={besties}/>} />
+          <Route path='/characters/:id' element={<Profile characters={characters} addBestie={addBestie} removeBestie={removeBestie}besties={besties}/>} />
           <Route path='/besties' element={<Besties besties={besties}/>} />
           <Route path='/*' element={<Error error={error}/>} />
         </Routes>
