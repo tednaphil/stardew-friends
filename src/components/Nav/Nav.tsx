@@ -1,5 +1,5 @@
 import './Nav.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import Search from '../Search/Search';
 
 interface Props {
@@ -8,13 +8,15 @@ interface Props {
 }
 
 function Nav({search, setSearch}: Props) {
+    const { pathname } = useLocation()
+    console.log(pathname)
     return (
         <>
             <nav className='nav-bar'>
                 <h1>Stardew Friends</h1>
                 <NavLink to='/' id='home-link' className='links'>Home</NavLink>
                 <NavLink to='/besties' id='besties-link' className='links'>Besties</NavLink>
-                <Search search={search} setSearch={setSearch}/>
+                {pathname === '/' && <Search search={search} setSearch={setSearch}/>}
             </nav>
             <hr/>
         </>
