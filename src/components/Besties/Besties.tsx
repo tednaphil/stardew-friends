@@ -13,6 +13,7 @@ function Besties({besties}: Props) {
                 key={bestie.id}
                 name={bestie.name}
                 avatar={bestie.avatar}
+                friendship={bestie.friendship}
                 id={bestie.id}
             />
         )
