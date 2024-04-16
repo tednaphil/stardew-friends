@@ -22,7 +22,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [characters, setCharacters] = useState<Char[]>([]);
   const [besties, setBesties] = useState<Char[]>([]);
-  const [sessionBesties, setSessionBesties] = useState<Char[]>([]);
+  // const [sessionBesties, setSessionBesties] = useState<Char[]>([]);
 
   useEffect(() => {
     fetchCharacters();

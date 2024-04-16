@@ -2,6 +2,7 @@ import './Profile.css';
 import { useParams } from 'react-router-dom';
 import type { Char } from '../App/App';
 import { useState, useEffect } from 'react';
+import { getCharacter } from '../../apiCalls';
 
 interface Props {
     characters: Char[]
@@ -11,11 +12,29 @@ interface Props {
 
 function Profile({characters, addBestie, besties}: Props) {
     const { id } = useParams<string>()
+    const [character, setCharacter] = useState<Char | null>(null)
+    const [error, setError] = useState<string>('')
+    const [loading, setLoading] = useState<boolean>(character ? false : true)
+
+    useEffect(() => {
+        // @ts-expect-error
+        fetchCharacter(id)
+    }, [])
+
+    const fetchCharacter = async (id: string) => {
+        try {
+            const character = await getCharacter(id)
+            setCharacter(character)
+            setLoading(false)
+        } catch(error) {
+            setError(`${error}`)
+        }
+    }
+
     //fetch individual character or find from app state?
     //may need to fetch character to avoid reload errors since fetch happens on app mount - does reloading count as an unmounting phase?
-    const chosenChar: Char | undefined = characters.find(char => char.id === id)
-    const [character, setCharacter] = useState<Char | undefined>(chosenChar)
-    const [loading, setLoading] = useState<boolean>(character ? false : true)
+    // const chosenChar: Char | undefined = characters.find(char => char.id === id)
+   
     const hobbies = character?.hobbies.map(hobby => {
         return (
             <p>{hobby}</p>
@@ -33,7 +52,7 @@ function Profile({characters, addBestie, besties}: Props) {
 
     return (
         <>
-            {/* {loading && <h2>Loading...</h2>} */}
+            {loading && <h2>Loading...</h2>}
             <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
             <h2 className='profile-name'>{character?.name}</h2>
             <h3>Birthday</h3>

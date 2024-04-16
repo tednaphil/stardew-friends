@@ -13,4 +13,19 @@ const getCharacters = async () => {
 
 }
 
-export { getCharacters }
+const getCharacter = async (id: string) => {
+    try {
+        const response = await fetch(`https://stardew-api.onrender.com/api/v1/characters/${id}`);
+        if (!response.ok) {
+            const status = response.status
+            throw new Error(`We couldn't get that character - ${status}`)
+        }
+        return await response.json();
+    } catch (error: any) {
+        console.log('API CALLS catch block', error.message)
+        throw error
+    }
+
+}
+
+export { getCharacters, getCharacter }
