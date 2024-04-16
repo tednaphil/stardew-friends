@@ -6,7 +6,7 @@ interface Props {
 function Error({error}: Props) {
     return (
         <>
-            <h2>{error}</h2>
+            {error.length ? <h2>{error}</h2> : <h2>That page doesn't exist!</h2>}
         </>
     )
 

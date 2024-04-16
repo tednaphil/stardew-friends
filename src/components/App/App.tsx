@@ -22,22 +22,17 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [characters, setCharacters] = useState<Char[]>([]);
   const [besties, setBesties] = useState<Char[]>([]);
-  // const [sessionBesties, setSessionBesties] = useState<Char[]>([]);
 
   useEffect(() => {
     fetchCharacters();
     // @ts-expect-error
     const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
-    console.log('storedBesties?', storedBesties)
     if (!storedBesties) {
       setBesties([])
     } else {
       setBesties(storedBesties)
     }
-    // setSessionBesties(storedBesties)
   }, [])
-
-  console.log('besties', besties)
 
   const fetchCharacters = async () => {
     try {
@@ -56,18 +51,16 @@ function App() {
         sessionStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
         // @ts-expect-error
         const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
-        console.log({storedBesties})
         setBesties(storedBesties)
       } else if(isBestie) {
         const name = isBestie.name
         alert(`${name} is already your friend!`)
-        //refactor to either have button removed/disabled or have diff alert system
+        //refactor with a modal and useRef hook if notification still needed
       }
     } else {
       sessionStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
         // @ts-expect-error
         const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
-        console.log({storedBesties})
         setBesties(storedBesties)
     }
   }
@@ -78,19 +71,7 @@ function App() {
     // @ts-expect-error
     const storedBesties= JSON.parse(sessionStorage.getItem('besties'));
     setBesties(storedBesties)
-    console.log('remove function besties', besties)
   }
-
-  // useEffect(() => {
-  //   sessionStorage.clear();
-  //   sessionStorage.setItem('besties', JSON.stringify(besties));
-  //   // @ts-expect-error
-  //   const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
-  //   console.log({storedBesties})
-  //   setSessionBesties(storedBesties)
-
-  // }, [besties])
-
 
   return (
     <div className="App">
@@ -98,7 +79,7 @@ function App() {
       <main className="main">
         <Routes>
           <Route path='/' element={<Home characters={characters} error={error} loading={loading} />} />
-          <Route path='/characters/:id' element={<Profile characters={characters} addBestie={addBestie} removeBestie={removeBestie}besties={besties}/>} />
+          <Route path='/characters/:id' element={<Profile addBestie={addBestie} removeBestie={removeBestie}besties={besties}/>} />
           <Route path='/besties' element={<Besties besties={besties}/>} />
           <Route path='/*' element={<Error error={error}/>} />
         </Routes>
