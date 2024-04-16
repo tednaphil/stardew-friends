@@ -16,6 +16,7 @@ export type Char = {
   birthday: string
   hobbies: string[]
   avatar: string
+  favGifts: string[]
 }
 
 function App() {

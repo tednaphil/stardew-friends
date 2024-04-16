@@ -47,6 +47,12 @@ function Profile({addBestie, removeBestie, besties}: Props) {
         )
     })
 
+    const gifts = character?.favGifts.map(gift => {
+        return (
+            <p>{gift}</p>
+        )
+    })
+
     useEffect(() => {
         setLoading(false)
     }, [character])
@@ -72,6 +78,8 @@ function Profile({addBestie, removeBestie, besties}: Props) {
             <p className='birthday'>{character?.birthday}</p>
             <h3>Hobbies</h3>
             <section className='hobbies'>{hobbies}</section>
+            <h3>Loved Gifts</h3>
+            <section className='gifts'>{gifts}</section>
             {/* @ts-expect-error */}
             {isBestie ? <button className='remove-button' onClick={() => handleRemoveClick(character)}>Remove Bestie</button> : <button className='bestie-button' onClick={() => handleAddClick(character)}>Add Bestie</button>}
             </article>}
