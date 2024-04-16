@@ -1,9 +1,9 @@
 import './Besties.css';
-import type { Char } from '../App/App';
+import type { Char, Friend } from '../App/App';
 import BestieCard from '../BestieCard/BestieCard';
 
 interface Props {
-    besties: Char[]
+    besties: Friend[]
 }
 
 function Besties({besties}: Props) {
@@ -17,7 +17,7 @@ function Besties({besties}: Props) {
             />
         )
     })
-    const bestieCount = (besties: Char[]): string => {
+    const bestieCount = (besties: Friend[]): string => {
         let message = ''
         if (besties.length < 1) {
             message = `You don't have any besties :(`

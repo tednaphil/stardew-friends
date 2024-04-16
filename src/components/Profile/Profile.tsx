@@ -1,14 +1,15 @@
 import './Profile.css';
 import { useParams } from 'react-router-dom';
 import Error from '../Error/Error';
-import type { Char } from '../App/App';
+import type { Char, Friend } from '../App/App';
 import { useState, useEffect } from 'react';
 import { getCharacter } from '../../apiCalls';
 import Junimo from '../../images/Junimo.gif';
 
+
 interface Props {
-    besties: Char[]
-    addBestie: (newBestie: Char) => void
+    besties: Friend[]
+    addBestie: (newBestie: Friend) => void
     removeBestie: (id: string) => void
 }
 
@@ -41,15 +42,15 @@ function Profile({addBestie, removeBestie, besties}: Props) {
         }
     }
    
-    const hobbies = character?.hobbies.map(hobby => {
+    const hobbies = character?.hobbies.map((hobby, index) => {
         return (
-            <p>{hobby}</p>
+            <p key={index}>{hobby}</p>
         )
     })
 
-    const gifts = character?.favGifts.map(gift => {
+    const gifts = character?.favGifts.map((gift, index) => {
         return (
-            <p>{gift}</p>
+            <p key={index}>{gift}</p>
         )
     })
 
@@ -58,12 +59,19 @@ function Profile({addBestie, removeBestie, besties}: Props) {
     }, [character])
 
     const handleAddClick = (newBestie: Char) => {
-        addBestie(newBestie)
+        const friend = friendify(newBestie)
+        console.log('friendified character', friend)
+        addBestie(friend)
     }
 
-    const handleRemoveClick = ({id}: Char) => {
+    const handleRemoveClick = ({id}: Friend) => {
         removeBestie(id)
     }
+
+    const friendify = (newBestie: Char): Friend => {
+        return(
+            {...newBestie, friendship: 0})
+      }
 
     return (
         <>

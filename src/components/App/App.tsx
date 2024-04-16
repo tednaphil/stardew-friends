@@ -19,11 +19,21 @@ export type Char = {
   favGifts: string[]
 }
 
+export type Friend = {
+  id: string
+  name: string
+  birthday: string
+  hobbies: string[]
+  avatar: string
+  favGifts: string[]
+  friendship: number
+}
+
 function App() {
   const [error, setError] = useState<any>('');
   const [loading, setLoading] = useState(true)
   const [characters, setCharacters] = useState<Char[]>([]);
-  const [besties, setBesties] = useState<Char[]>([]);
+  const [besties, setBesties] = useState<Friend[]>([]);
 
   useEffect(() => {
     fetchCharacters();
@@ -43,6 +53,8 @@ function App() {
       //   setLoading(false)
       //   setCharacters(characters)
       // }, 5000)
+      //function to add frienship property to characters
+      // const updatedCharacters = friendify(characters)
       setCharacters(characters);
       setLoading(false);
     } catch(error) {
@@ -50,7 +62,7 @@ function App() {
     }
   }
 
-  const addBestie = (newBestie: Char) => {
+  const addBestie = (newBestie: Friend) => {
     if (besties.length) {
       const isBestie = besties.find(bestie => newBestie.id === bestie.id);
       if (!isBestie) {
@@ -79,13 +91,14 @@ function App() {
     setBesties(storedBesties)
   }
 
+
   return (
     <div className="App">
       <Nav />
       <main className="main">
         <Routes>
           <Route path='/' element={<Home characters={characters} error={error} loading={loading} />} />
-          <Route path='/characters/:id' element={<Profile addBestie={addBestie} removeBestie={removeBestie}besties={besties}/>} />
+          <Route path='/characters/:id' element={<Profile addBestie={addBestie} removeBestie={removeBestie} besties={besties}/>} />
           <Route path='/besties' element={<Besties besties={besties}/>} />
           <Route path='/*' element={<Error error={error}/>} />
         </Routes>
