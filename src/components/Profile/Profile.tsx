@@ -64,7 +64,6 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
 
     const handleAddClick = (newBestie: Char) => {
         const friend = friendify(newBestie)
-        console.log('friendified character', friend)
         addBestie(friend)
     }
 

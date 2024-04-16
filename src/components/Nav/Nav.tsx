@@ -9,7 +9,6 @@ interface Props {
 
 function Nav({search, setSearch}: Props) {
     const { pathname } = useLocation()
-    console.log(pathname)
     return (
         <>
             <nav className='nav-bar'>

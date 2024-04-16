@@ -56,8 +56,6 @@ function App() {
       //   setLoading(false)
       //   setCharacters(characters)
       // }, 5000)
-      //function to add frienship property to characters
-      // const updatedCharacters = friendify(characters)
       setCharacters(characters);
       setFilteredChars(characters)
       setLoading(false);
@@ -113,7 +111,7 @@ function App() {
       <Nav search={search} setSearch={setSearch}/>
       <main className="main">
         <Routes>
-          <Route path='/' element={<Home characters={characters} filteredChars={filteredChars} error={error} loading={loading} /*search={search} setSearch={setSearch}*/ />} />
+          <Route path='/' element={<Home characters={characters} filteredChars={filteredChars} error={error} loading={loading} />} />
           <Route path='/characters/:id' element={<Profile addBestie={addBestie} removeBestie={removeBestie} besties={besties} setSearch={setSearch}/>} />
           <Route path='/besties' element={<Besties besties={besties} setBesties={setBesties}/>} />
           <Route path='/*' element={<Error error={error}/>} />

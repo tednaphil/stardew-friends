@@ -13,7 +13,6 @@ interface Props {
 }
 
 function BestieCard({ id, name, avatar, friendship, besties, setBesties }: Props) {
-    //pass removeBestie function from App component
     return (
         <section className='bestie-cards'>
             <img src={avatar}/>
@@ -23,7 +22,6 @@ function BestieCard({ id, name, avatar, friendship, besties, setBesties }: Props
             </Link>
             {/* <p>{`Friendship level: ${friendship}`}</p> */}
             {/* <Incrementer friendship={friendship} id={id} besties={besties} setBesties={setBesties}/> */}
-            {/* remove bestie button */}
         </section>
     )
 }

@@ -21,6 +21,7 @@ function Besties({besties, setBesties}: Props) {
             />
         )
     })
+    
     const bestieCount = (besties: Friend[]): string => {
         let message = ''
         if (besties.length < 1) {
