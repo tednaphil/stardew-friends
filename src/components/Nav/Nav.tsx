@@ -13,11 +13,14 @@ function Nav({search, setSearch}: Props) {
         <>
             <nav className='nav-bar'>
                 <h1 className='heading'>Stardew Friends</h1>
-                <NavLink to='/' id='home-link' className='links'>Home</NavLink>
-                <NavLink to='/besties' id='besties-link' className='links'>Besties</NavLink>
+                <section className='links'>
+                    <NavLink to='/' id='home-link' >Home</NavLink>
+                    <NavLink to='/besties' id='besties-link' className='vl'>Besties</NavLink>
+                </section>
                 {pathname === '/' && <Search search={search} setSearch={setSearch}/>}
             </nav>
             <hr/>
+            {/* {pathname === '/' && <Search search={search} setSearch={setSearch}/>} */}
         </>
     )
 

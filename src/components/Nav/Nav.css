@@ -1,0 +1,32 @@
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    & a {
+        font-size: 1.4rem;
+        color: var(--sec-bg-color);
+        padding: 10px;
+    }
+    & .active {
+        color: var(--main-acc-color);
+    }
+}
+
+.links {
+    margin: 0 auto;
+    margin-top: -10px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.vl {
+  border-left: .5px solid var(--sec-bg-color);
+  height: 100%;
+}
+
+
+
+hr {
+    border: .5px solid var(--sec-bg-color);
+}
+

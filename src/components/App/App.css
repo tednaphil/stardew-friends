@@ -8,11 +8,13 @@
   border-radius: 18px;
   border-image: url('../../images/border.png') 20 stretch;
   font-family: 'Montserrat', sans-serif;
+  color: var(--main-text-color);
 }
 
 h1 {
   font-family: 'Press Start 2P', sans-serif;
   color: var(--main-text-color);
+  font-size: 2rem;
 }
 
 @keyframes App-logo-spin {
