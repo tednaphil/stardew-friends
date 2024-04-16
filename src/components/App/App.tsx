@@ -55,6 +55,7 @@ function App() {
       // setTimeout(() => {
       //   setLoading(false)
       //   setCharacters(characters)
+      //   setFilteredChars(characters)
       // }, 5000)
       setCharacters(characters);
       setFilteredChars(characters)

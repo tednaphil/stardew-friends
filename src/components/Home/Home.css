@@ -15,6 +15,18 @@ a {
     color: var(--main-text-color)
 }
 
+.loading-screen {
+    text-align: center;
+    & .loading-message {
+        font-weight: 300;
+        color: var(--sec-bg-color)
+    }
+}
+
+.loading-image {
+    width: 80px;
+}
+
 /* section {
     display: inline-block;
     width: max-content;

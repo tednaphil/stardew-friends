@@ -20,7 +20,6 @@ function Nav({search, setSearch}: Props) {
                 {pathname === '/' && <Search search={search} setSearch={setSearch}/>}
             </nav>
             <hr/>
-            {/* {pathname === '/' && <Search search={search} setSearch={setSearch}/>} */}
         </>
     )
 

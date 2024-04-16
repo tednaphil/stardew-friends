@@ -44,10 +44,10 @@ function Home({ characters, filteredChars, error, loading }: Props) {
 
     return (
         <>
-            {loading && <>
+            {loading && <article className='loading-screen'>
                 <img src={Junimo} alt='Dancing green Junimo' className='loading-image'/>
-                <h2>Loading...</h2>
-            </>}
+                <h2 className='loading-message'>Loading...</h2>
+            </article>}
             {error && <Error error={error}/>}
             <section className="character-cards">
                 {cards}
