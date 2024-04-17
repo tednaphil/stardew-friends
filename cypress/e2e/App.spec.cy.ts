@@ -13,7 +13,6 @@ describe('Stardew Friends User Stories', () => {
     .visit('http://localhost:3000/')
   })
   it('Displays Homepage', () => {
-    // cy.visit('http://localhost:3000/')
     cy.get('.loading-screen').contains('h2', 'Loading...')
     .get('.loading-image').should('have.attr', 'src')/*.should('include', 'data:image/gif')*/
     .wait('@getCharacters')
@@ -29,7 +28,6 @@ describe('Stardew Friends User Stories', () => {
     .get('.char-avatar').last().should('have.attr', 'alt').should('equal', 'Wizard avatar')
   })
   it('Shows individual character profile', () => {
-    // cy.visit('http://localhost:3000/')
     cy.get('.card-wrapper').last().click()
     .get('.nav-bar').children().should('have.length', 2)
     .get('.hero-wrapper').contains('h2', 'Wizard')
@@ -62,8 +60,6 @@ describe('Stardew Friends User Stories', () => {
     .get('.incrementer').contains('p', '2')
     .get('#down').click()
     .get('.incrementer').contains('p', '1')
-    //remove bestie
-    //check bestie view
     .get('.profile-link').click()
     .get('.remove-button').click()
     .get('.bestie-button').should('exist')
@@ -71,10 +67,12 @@ describe('Stardew Friends User Stories', () => {
     .get('.bestie-count').contains('You don\'t have any besties :(')
   })
 
-  // it('Displays search results', () => {
-  //   //check value of search input
-  //   //type search
-  //   //check displayed results
-
-  // })
+  it('Displays search results', () => {
+    cy.get('.search-bar').type('wi').should('have.value', 'wi')
+    .get('.character-cards').children().should('have.length', 2)
+    .get('.card-wrapper').first().contains('p', 'Willy')
+    .get('.char-avatar').first().should('have.attr', 'alt').should('equal', 'Willy avatar')
+    .get('.card-wrapper').last().contains('p', 'Wizard')
+    .get('.char-avatar').last().should('have.attr', 'alt').should('equal', 'Wizard avatar')
+  })
 })
