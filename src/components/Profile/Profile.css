@@ -49,5 +49,32 @@
 }
 
 .profile-details {
+    margin: 20px 0;
+    margin-left: 55px;
+    margin-right: 20px;
+    padding: 20px;
+    width: 70%;
+    text-align: center;
+    background:var(--sec-bg-color);
+    filter: var(--sec-drop-shadow);
+    border: 18px solid transparent;
+    border-radius: 18px;
+    border-image: url('../../images/border.png') 20 stretch;
+        & h3 {
+            /* background: var(--main-bg-color); */
+            text-decoration:underline ;
+            font-size: 1.5rem;
+            font-weight: 450;
+        }
+}
 
+.hobbies, .gifts {
+    display: flex;
+    justify-content: space-around;
+    text-transform: capitalize;
+    flex-wrap: wrap;
+}
+
+.hobby, .gift {
+    padding: 0 5px;
 }

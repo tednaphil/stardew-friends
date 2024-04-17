@@ -48,13 +48,13 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
    
     const hobbies = character?.hobbies.map((hobby, index) => {
         return (
-            <p key={index}>{hobby}</p>
+            <p className='hobby' key={index}>{hobby}</p>
         )
     })
 
     const gifts = character?.favGifts.map((gift, index) => {
         return (
-            <p key={index}>{gift}</p>
+            <p className='gift' key={index}>{gift}</p>
         )
     })
 
