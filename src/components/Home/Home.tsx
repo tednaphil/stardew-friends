@@ -4,46 +4,56 @@ import Error from '../Error/Error';
 import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import Character from '../Character/Character';
+import Junimo from '../../images/Junimo.gif';
+
 
 interface Props {
     characters: Char[]
     error: string
     loading: boolean
+    filteredChars: Char[]
+    // search: string
+    // setSearch: (query: string) => void
 }
 
-function Home({ characters, error, loading }: Props) {
+function Home({ characters, filteredChars, error, loading }: Props) {
 
-    const cards = characters.map(element => {
+    // const cards = characters.map(element => {
+    //     const {id, name, avatar} = element
+    //     return (
+    //         <Link to={`/characters/${id}`} key={id}>
+    //             <section className='character-card'>
+    //             <img src={avatar} alt={`${name} avatar`} className='char-avatar'/>
+    //             <p>{name}</p>
+    //             </section>
+    //         </Link>
+    //     )
+    // })
+
+    const cards = filteredChars.map(element => {
         const {id, name, avatar} = element
         return (
-            <Link to={`/characters/${id}`}>
-                <section className='character-card'>
-                <img src={avatar} alt={`${name} avatar`} className='char-avatar'/>
-                <p>{name}</p>
+            <Link to={`/characters/${id}`} key={id} className='character-card'>
+                <section className='card-wrapper'>
+                    <img src={avatar} alt={`${name} avatar`} className='char-avatar'/>
+                    <p>{name}</p>
                 </section>
             </Link>
-            // <Character
-            // id={element.id}
-            // name={element.name}
-            // avatar={element.avatar}
-            // key={element.id}
-            // />
         )
     })
 
-    // console.log(characters.length)
-    // why wasn't the characters.length! conditional working?
-
     return (
         <>
-        {loading && <h2>Loading...</h2>}
-        {error && <Error error={error}/>}
-        <section className="character-cards">
-            {cards}
-        </section>
+            {loading && <article className='loading-screen'>
+                <img src={Junimo} alt='Dancing green Junimo' className='loading-image'/>
+                <h2 className='loading-message'>Loading...</h2>
+            </article>}
+            {error && <Error error={error}/>}
+            <section className="character-cards">
+                {cards}
+            </section>
         </>
     )
-
 }
 
 export default Home

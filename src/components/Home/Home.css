@@ -1,12 +1,15 @@
 .character-cards {
     text-align: center;
+    margin-top: 30px;
 }
+
 .character-card {
     display: inline-block;
     width: max-content;
+    margin: 0 5px;
     & :hover {
         cursor: pointer;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }
 
@@ -15,11 +18,14 @@ a {
     color: var(--main-text-color)
 }
 
-/* section {
-    display: inline-block;
-    width: max-content;
-    & :hover {
-        cursor: pointer;
-        transform: scale(1.2);
+.loading-screen {
+    text-align: center;
+    & .loading-message {
+        font-weight: 300;
+        color: var(--sec-bg-color)
     }
-} */
+}
+
+.loading-image {
+    width: 80px;
+}

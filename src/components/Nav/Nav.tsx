@@ -1,17 +1,28 @@
 import './Nav.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import Search from '../Search/Search';
+import type { Friend } from '../App/App';
 
-function Nav() {
+interface Props {
+    search: string
+    setSearch: (query: string) => void
+    besties: Friend[]
+}
+
+function Nav({search, setSearch, besties}: Props) {
+    const { pathname } = useLocation()
     return (
-        <>
-        <nav className='nav-bar'>
-            <h1>Stardew Friends</h1>
-            <NavLink to='/' id='home-link'>Home</NavLink>
-            <NavLink to='/besties' id='besties-link'>Besties</NavLink>
-            {/* <input type='text' placeholder='Search' /> */}
-        </nav>
-        <hr/>
-        </>
+        <header className='header'>
+            <nav className='nav-bar'>
+                <h1 className='heading'>Stardew Friends</h1>
+                <section className='links'>
+                    <NavLink to='/' id='home-link' >Home</NavLink>
+                    <NavLink to='/besties' id='besties-link' className='vl'>{`Besties (${besties.length})`}</NavLink>
+                </section>
+                {pathname === '/' && <Search search={search} setSearch={setSearch}/>}
+            </nav>
+            <hr/>
+        </header>
     )
 
 }

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "31",
+    "name": "Sandy",
+    "birthday": "'Fall 15'",
+    "hobbies": [
+      "exploring",
+      "collecting rare items",
+      "gardening"
+    ],
+    "avatar": "https://stardewvalleywiki.com/mediawiki/images/4/4e/Sandy.png",
+    "favGifts": [
+      "'Crocus'",
+      "'Daffodil'", "'Mango Sticky Rice'","'Sweet Pea'"
+    ]
+  },
+  {
+    "id": "32",
+    "name": "Vincent",
+    "birthday": "'Spring 10'",
+    "hobbies": [
+      "playing with friends",
+      "drawing",
+      "exploring"
+    ],
+    "avatar": "https://stardewvalleywiki.com/mediawiki/images/f/f1/Vincent.png",
+    "favGifts": ["'Cranberry Candy'", "'Ginger Ale'", "'Grape'", "'Pink Cake'", "'Snail'"
+    ]
+  },
+  {
+    "id": "33",
+    "name": "Willy",
+    "birthday": "'Summer 24'",
+    "hobbies": [
+      "fishing",
+      "exploring",
+      "cooking"
+    ],
+    "avatar": "https://stardewvalleywiki.com/mediawiki/images/8/82/Willy.png",
+    "favGifts": ["'Catfish'", "'Diamond'", "'Iridium Bar'", "'Jewels of The Sea'", "'Mead'", "'Octopus'", "'Pumpkin'", "'Sea Cucumber'", "'Sturgeon'", "'The Art O Crabbing'"
+    ]
+  },
+  {
+    "id": "34",
+    "name": "Wizard",
+    "birthday": "'Winter 17'",
+    "hobbies": [
+      "alchemy",
+      "potion brewing",
+      "divination"
+    ],
+    "avatar": "https://stardewvalleywiki.com/mediawiki/images/c/c7/Wizard.png",
+    "favGifts": ["'Book of Mysteries'", "'Purple Mushroom'", "'Solar Essence'", "'Super Cucumber'", "'Void Essence'"
+    ]
+  }
+]

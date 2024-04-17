@@ -12,8 +12,10 @@
   --main-text-color: #243763;
   --sec-text-color: #FFEBB7;
   --rounded-border: 12px;
-  --border-style: #243763 solid 1px;
-  --drop-shadow: drop-shadow(0px 2px 10px #AD8E70);
+  --border-style: #243763 solid 2px;
+  --main-drop-shadow: drop-shadow(15px 15px #AD8E70);
+  --sec-drop-shadow: drop-shadow(10px 10px #243763);
+  /* --box-shadow: box-shadow(15px 15px #AD8E70); */
 }
 
 body {

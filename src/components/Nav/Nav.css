@@ -1,0 +1,44 @@
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    background: var(--main-bg-color);
+    & a {
+        font-size: 1.4rem;
+        color: var(--sec-bg-color);
+        padding: 10px;
+    }
+    & .active {
+        color: var(--main-acc-color);
+    }
+}
+
+/* .header {
+    overflow: hidden;
+    position: fixed;
+    top: 30px;
+    width: 86%;
+    background: var(--main-bg-color);
+} */
+
+.links {
+    margin: 0 auto;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.vl {
+  border-left: .5px solid var(--sec-bg-color);
+}
+
+
+
+hr {
+    border: .5px solid var(--sec-bg-color);
+    margin: 0 auto;
+    width: 90%
+    
+}
+

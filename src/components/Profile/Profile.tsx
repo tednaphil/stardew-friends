@@ -1,17 +1,21 @@
 import './Profile.css';
 import { useParams } from 'react-router-dom';
 import Error from '../Error/Error';
-import type { Char } from '../App/App';
+import type { Char, Friend } from '../App/App';
 import { useState, useEffect } from 'react';
 import { getCharacter } from '../../apiCalls';
+import Junimo from '../../images/Junimo.gif';
+import { UserPlus, UserX } from 'react-feather';
+
 
 interface Props {
-    besties: Char[]
-    addBestie: (newBestie: Char) => void
+    besties: Friend[]
+    addBestie: (newBestie: Friend) => void
     removeBestie: (id: string) => void
+    setSearch: (query: string) => void
 }
 
-function Profile({addBestie, removeBestie, besties}: Props) {
+function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
     const { id } = useParams<string>()
     const [character, setCharacter] = useState<Char | null>(null)
     const [error, setError] = useState<string>('')
@@ -28,6 +32,8 @@ function Profile({addBestie, removeBestie, besties}: Props) {
     useEffect(() => {
         // @ts-expect-error
         fetchCharacter(id)
+        setSearch('')
+
     }, [])
 
     const fetchCharacter = async (id: string) => {
@@ -40,9 +46,15 @@ function Profile({addBestie, removeBestie, besties}: Props) {
         }
     }
    
-    const hobbies = character?.hobbies.map(hobby => {
+    const hobbies = character?.hobbies.map((hobby, index) => {
         return (
-            <p>{hobby}</p>
+            <p className='hobby' key={index}>{hobby}</p>
+        )
+    })
+
+    const gifts = character?.favGifts.map((gift, index) => {
+        return (
+            <p className='gift' key={index}>{gift}</p>
         )
     })
 
@@ -51,27 +63,45 @@ function Profile({addBestie, removeBestie, besties}: Props) {
     }, [character])
 
     const handleAddClick = (newBestie: Char) => {
-        addBestie(newBestie)
+        const friend = friendify(newBestie)
+        addBestie(friend)
     }
 
-    const handleRemoveClick = ({id}: Char) => {
+    const handleRemoveClick = ({id}: Friend) => {
         removeBestie(id)
     }
 
+    const friendify = (newBestie: Char): Friend => {
+        return(
+            {...newBestie, friendship: 0})
+      }
+
     return (
         <>
-            {loading && <h2>Loading...</h2>}
-            {error ? <Error error={error}/> : <>
-            <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
-            <h2 className='profile-name'>{character?.name}</h2>
-            <h3>Birthday</h3>
-            <p className='birthday'>{character?.birthday}</p>
-            <h3>Hobbies</h3>
-            <section className='hobbies'>{hobbies}</section>
-            {/* @ts-expect-error */}
-            {isBestie ? <button className='remove-button' onClick={() => handleRemoveClick(character)}>Remove Bestie</button> : <button className='bestie-button' onClick={() => handleAddClick(character)}>Add Bestie</button>}
-            </>}
-    
+            {loading && <article className='loading-screen'>
+                <img src={Junimo} alt='Dancing green Junimo' className='loading-image'/>
+                <h2 className='loading-message'>Loading...</h2>
+            </article>}
+            {error ? <Error error={error}/> : <article className='char-profile'>
+            <div className="hero-wrapper">
+                <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
+                <div className='name-banner'>
+                    <h2 className='profile-name'>{character?.name}</h2>
+                    {/* @ts-expect-error */}
+                    {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>}
+                </div>
+            </div>
+            {/* @ts-expect-error
+            {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>} */}
+            <section className='profile-details'>
+                <h3>Birthday</h3>
+                <p className='birthday'>{character?.birthday}</p>
+                <h3>Hobbies</h3>
+                <section className='hobbies'>{hobbies}</section>
+                <h3>Loved Gifts</h3>
+                <section className='gifts'>{gifts}</section>
+            </section>
+            </article>}
         </>
     )
 }
