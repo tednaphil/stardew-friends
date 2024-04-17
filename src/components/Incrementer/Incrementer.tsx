@@ -30,12 +30,12 @@ function Incrementer({ friendship, id, besties, setBesties }: Props) {
             if (bestie.id === id) {
                 bestie.friendship = newLevel
             }
-            console.log(currentBesties)
-        // sessionStorage.clear()
-        // sessionStorage.setItem('besties', JSON.stringify([...besties, bestie]));
-        // // @ts-expect-error
-        // const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
-        // setBesties(storedBesties)
+        console.log(currentBesties);
+        sessionStorage.clear();
+        sessionStorage.setItem('besties', JSON.stringify(currentBesties));
+        // @ts-expect-error
+        const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+        setBesties(storedBesties)
         })
 
 
