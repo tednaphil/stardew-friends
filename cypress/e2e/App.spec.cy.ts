@@ -10,10 +10,11 @@ describe('Stardew Friends User Stories', () => {
         statusCode: 200,
         fixture: 'character'
       }).as('getCharacter')
+    .visit('http://localhost:3000/')
   })
   it('Displays Homepage', () => {
-    cy.visit('http://localhost:3000/')
-    .get('.loading-screen').contains('h2', 'Loading...')
+    // cy.visit('http://localhost:3000/')
+    cy.get('.loading-screen').contains('h2', 'Loading...')
     .get('.loading-image').should('have.attr', 'src')/*.should('include', 'data:image/gif')*/
     .wait('@getCharacters')
     .get('.nav-bar').children().should('have.length', 3)
@@ -27,19 +28,48 @@ describe('Stardew Friends User Stories', () => {
     .get('.card-wrapper').last().contains('p', 'Wizard')
     .get('.char-avatar').last().should('have.attr', 'alt').should('equal', 'Wizard avatar')
   })
-  // it('Shows individual character profile', () => {
-  //   //click character from homepage
-  //   //check content
-  // })
-  // it('Adds and removes besties', () => {
-  //   //add bestie from character profile
-  //   //check besties view
-  //   //remove bestie
-  //   //check bestie view
-  // })
-  // it('Increments frienship level', () => {
-
-  // })
+  it('Shows individual character profile', () => {
+    // cy.visit('http://localhost:3000/')
+    cy.get('.card-wrapper').last().click()
+    .get('.nav-bar').children().should('have.length', 2)
+    .get('.hero-wrapper').contains('h2', 'Wizard')
+    .get('.profile-avatar').should('have.attr', 'alt').should('equal', 'Wizard avatar')
+    .get('.bestie-button').should('exist')
+    .get('.profile-details').children().should('have.length', 6)
+    .get('.profile-details').contains('h3', 'Birthday')
+    .get('.birthday').contains('p', 'Winter 17')
+    .get('.profile-details').contains('h3', 'Hobbies')
+    .get('.hobby').first().contains('p', 'alchemy')
+    .get('.hobby').last().contains('p', 'divination')
+    .get('.profile-details').contains('h3', 'Loved Gifts')
+    .get('.gift').first().contains('p', 'Book of Mysteries')
+    .get('.gift').last().contains('p', 'Void Essence')
+  })
+  it('Adds, increments, and removes besties', () => {
+    cy.get('.card-wrapper').last().click()
+    .get('.bestie-button').click()
+    .get('.remove-button').should('exist')
+    .get('#besties-link').click()
+    // .get('#besties-link').contains('1')
+    .get('.bestie-count').contains('You have 1 bestie!')
+    .get('.bestie-avatar').should('have.attr', 'alt').should('equal', 'Wizard avatar')
+    .get('.name').contains('Wizard')
+    .get('.profile-link').contains('View Profile')
+    .get('.friendship-label').contains('Friendship Level')
+    .get('.incrementer').children().should('have.length', 3)
+    .get('.incrementer').contains('p', '0')
+    .get('#up').click().click()
+    .get('.incrementer').contains('p', '2')
+    .get('#down').click()
+    .get('.incrementer').contains('p', '1')
+    //remove bestie
+    //check bestie view
+    .get('.profile-link').click()
+    .get('.remove-button').click()
+    .get('.bestie-button').should('exist')
+    .get('#besties-link').click()
+    .get('.bestie-count').contains('You don\'t have any besties :(')
+  })
 
   // it('Displays search results', () => {
   //   //check value of search input
