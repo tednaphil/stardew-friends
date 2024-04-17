@@ -15,11 +15,29 @@ function Incrementer({ friendship, id, besties, setBesties }: Props) {
     function updateBestie(id: string, direction: string) {
         //set storage with current besties and bestie with updated friendship property value
         //get updated besties and setBesties
+        let newLevel = 0
         if (direction === 'up') {
-            setFriendshipLevel(friendshipLevel + 1)
+            newLevel = friendshipLevel + 1
+            // setFriendshipLevel(newLevel)
         } else if (direction === 'down') {
-            setFriendshipLevel(friendshipLevel - 1)
+            newLevel = friendshipLevel - 1
+            // setFriendshipLevel(newLevel)
         }
+        setFriendshipLevel(newLevel)
+
+        let currentBesties = [...besties];
+        currentBesties.forEach(bestie => {
+            if (bestie.id === id) {
+                bestie.friendship = newLevel
+            }
+            console.log(currentBesties)
+        // sessionStorage.clear()
+        // sessionStorage.setItem('besties', JSON.stringify([...besties, bestie]));
+        // // @ts-expect-error
+        // const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+        // setBesties(storedBesties)
+        })
+
 
         //get and store besties from local storage
         //clear storage
