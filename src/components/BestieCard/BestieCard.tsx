@@ -14,9 +14,9 @@ interface Props {
 
 function BestieCard({ id, name, avatar, friendship, besties, setBesties }: Props) {
     return (
-        <section className='bestie-cards'>
+        <section className='bestie-card'>
             <img src={avatar}/>
-            <p>{name}</p>
+            <p className='name'>{name}</p>
             <Link to={`/characters/${id}`}>
                 <p>View Profile</p>
             </Link>

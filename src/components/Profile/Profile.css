@@ -42,7 +42,7 @@
     background: none;
 }
 
-.buttons:hover {
+.buttons:focus, .buttons:hover {
         cursor: pointer;
         background: var(--main-acc-color);
         color: var(--sec-text-color);
