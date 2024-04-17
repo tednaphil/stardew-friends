@@ -20,6 +20,16 @@ function Incrementer({ friendship, id, besties, setBesties }: Props) {
         } else if (direction === 'down') {
             setFriendshipLevel(friendshipLevel - 1)
         }
+
+        //get and store besties from local storage
+        //clear storage
+        //find and update friendship value of respective friend object
+            //use for each and if the object matches, update friendship property with friendshipLevel
+        //set storage with updated array
+        //get newly stored besties
+        //setBesties with newly stored besties
+
+    
         // const bestie = besties.find(bestie => bestie.id === id)
         // // @ts-expect-error
         // bestie.friendship = friendshipLevel
