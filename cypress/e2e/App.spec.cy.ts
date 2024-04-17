@@ -5,6 +5,11 @@ describe('Stardew Friends User Stories', () => {
         statusCode: 200,
         fixture: 'characters'
       }).as('getCharacters')
+    cy.intercept('GET', 'https://stardew-api.onrender.com/api/v1/characters/34',
+      {
+        statusCode: 200,
+        fixture: 'character'
+      }).as('getCharacter')
   })
   it('Displays Homepage', () => {
     cy.visit('https://stardew-friends.vercel.app/')
