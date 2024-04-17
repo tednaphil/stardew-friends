@@ -11,6 +11,7 @@ describe('Stardew Friends User Stories', () => {
         fixture: 'character'
       }).as('getCharacter')
     .visit('http://localhost:3000/')
+    //set viewport size if needed after css refactor
   })
   it('Displays Homepage', () => {
     cy.get('.loading-screen').contains('h2', 'Loading...')

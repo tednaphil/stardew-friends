@@ -25,7 +25,8 @@ describe('Stardew Friends Error Handling', () => {
         statusCode: 404,
       }).as('badGetCharacter')
       .visit('http://localhost:3000/badpath')
-      .get('.error-message').contains('That page doesn\'t exist')
+      // .wait('@badGetCharacters')
+      .get('.error-message').contains('That page doesn\'t exist') //why is this test blinking?
       .visit('http://localhost:3000/characters/badpath')
       .get('.error-message').contains('Error: We couldn\'t get that character - 404')
     })
