@@ -83,10 +83,16 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
                 <h2 className='loading-message'>Loading...</h2>
             </article>}
             {error ? <Error error={error}/> : <article className='char-profile'>
-            <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
-            <h2 className='profile-name'>{character?.name}</h2>
-            {/* @ts-expect-error */}
-            {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>}
+            <div className="hero-wrapper">
+                <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
+                <div className='name-banner'>
+                    <h2 className='profile-name'>{character?.name}</h2>
+                    {/* @ts-expect-error */}
+                    {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>}
+                </div>
+            </div>
+            {/* @ts-expect-error
+            {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>} */}
             <h3>Birthday</h3>
             <p className='birthday'>{character?.birthday}</p>
             <h3>Hobbies</h3>
