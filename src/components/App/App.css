@@ -13,6 +13,8 @@ h1 {
   font-family: 'Press Start 2P', sans-serif;
   color: var(--main-text-color);
   font-size: 2rem;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 @keyframes App-logo-spin {

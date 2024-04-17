@@ -10,7 +10,7 @@ interface Props {
 function Nav({search, setSearch}: Props) {
     const { pathname } = useLocation()
     return (
-        <>
+        <header className='header'>
             <nav className='nav-bar'>
                 <h1 className='heading'>Stardew Friends</h1>
                 <section className='links'>
@@ -20,7 +20,7 @@ function Nav({search, setSearch}: Props) {
                 {pathname === '/' && <Search search={search} setSearch={setSearch}/>}
             </nav>
             <hr/>
-        </>
+        </header>
     )
 
 }
