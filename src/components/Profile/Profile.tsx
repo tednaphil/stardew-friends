@@ -93,12 +93,14 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
             </div>
             {/* @ts-expect-error
             {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>} */}
-            <h3>Birthday</h3>
-            <p className='birthday'>{character?.birthday}</p>
-            <h3>Hobbies</h3>
-            <section className='hobbies'>{hobbies}</section>
-            <h3>Loved Gifts</h3>
-            <section className='gifts'>{gifts}</section>
+            <section className='profile-details'>
+                <h3>Birthday</h3>
+                <p className='birthday'>{character?.birthday}</p>
+                <h3>Hobbies</h3>
+                <section className='hobbies'>{hobbies}</section>
+                <h3>Loved Gifts</h3>
+                <section className='gifts'>{gifts}</section>
+            </section>
             </article>}
         </>
     )
