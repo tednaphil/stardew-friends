@@ -1,11 +1,20 @@
+.char-profile {
+    display: flex;
+    flex-direction: row;
+}
+
 .hero-wrapper {
     width: max-content;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 10px;
     margin-left: 20px;
     margin-top: 20px;
     background: var(--sec-acc-color);
     border: var(--border-style);
-    filter: var(--drop-shadow);
+    filter: var(--main-drop-shadow);
 }
 
 .profile-avatar {
@@ -17,7 +26,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 2px;
+    margin-top: 5px;
     & h2 {
         font-family: 'Press Start 2P', sans-serif;
         padding-right: 5px;
@@ -31,14 +40,14 @@
     color: var(--main-text-color);
     border: 1px solid var(--main-text-color);
     background: none;
-    /* & :hover {
-        cursor: pointer;
-        background: var(--main-acc-color);
-    } */
 }
 
 .buttons:hover {
         cursor: pointer;
         background: var(--main-acc-color);
         color: var(--sec-text-color);
+}
+
+.profile-details {
+
 }
