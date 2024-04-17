@@ -1,0 +1,26 @@
+.incrementer {
+    background: var(--main-acc-color);
+    color: var(--sec-text-color);
+    border: var(--border-style);
+    filter: drop-shadow(5px 5px #243763);
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 40px;
+    & button {
+        background: none;
+        border: none;
+        color: var(--main-text-color)
+    }
+    & button:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+.friendship-label {
+    margin: 5px 0;
+    margin-top: 8px;
+}
