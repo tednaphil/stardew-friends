@@ -20,6 +20,7 @@ a {
 
 .loading-screen {
     text-align: center;
+    margin-top: 30px;
     & .loading-message {
         font-weight: 300;
         color: var(--sec-bg-color)

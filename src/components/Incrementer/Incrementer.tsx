@@ -36,8 +36,7 @@ function Incrementer({ friendship, id, besties, setBesties }: Props) {
         })
     }
 
-    function handleClick(id: string, e: any/*update to event Type*/, direction: string) {
-        // const direction = e.target.id;
+    function handleClick(id: string, direction: string) {
         updateBestie(id, direction)
     }
 
@@ -45,10 +44,10 @@ function Incrementer({ friendship, id, besties, setBesties }: Props) {
         <>
             <p className='friendship-label'>Friendship Level</p>
             <section className='incrementer'>
-                <button id='up' value='up' onClick={(e) => handleClick(id, e, 'up')}><ChevronUp /></button>
+                <button id='up' value='up' onClick={() => handleClick(id, 'up')}><ChevronUp /></button>
                 <p>{friendshipLevel}</p>
                 {/* how should I restrict this to a range? Should I make it a number input instead? */}
-                <button id='down' value='down' onClick={(e) => handleClick(id, e, 'down')}><ChevronDown/></button>
+                <button id='down' value='down' onClick={() => handleClick(id, 'down')}><ChevronDown/></button>
             </section>
         </>
     )
