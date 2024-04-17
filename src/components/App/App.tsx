@@ -109,7 +109,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav search={search} setSearch={setSearch}/>
+      <Nav search={search} setSearch={setSearch} besties={besties}/>
       <main className="main">
         <Routes>
           <Route path='/' element={<Home characters={characters} filteredChars={filteredChars} error={error} loading={loading} />} />

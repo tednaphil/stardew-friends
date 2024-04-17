@@ -48,13 +48,13 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
    
     const hobbies = character?.hobbies.map((hobby, index) => {
         return (
-            <p key={index}>{hobby}</p>
+            <p className='hobby' key={index}>{hobby}</p>
         )
     })
 
     const gifts = character?.favGifts.map((gift, index) => {
         return (
-            <p key={index}>{gift}</p>
+            <p className='gift' key={index}>{gift}</p>
         )
     })
 
@@ -78,21 +78,29 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
 
     return (
         <>
-            {loading && <>
+            {loading && <article className='loading-screen'>
                 <img src={Junimo} alt='Dancing green Junimo' className='loading-image'/>
                 <h2 className='loading-message'>Loading...</h2>
-            </>}
+            </article>}
             {error ? <Error error={error}/> : <article className='char-profile'>
-            <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
-            <h2 className='profile-name'>{character?.name}</h2>
-            {/* @ts-expect-error */}
-            {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>}
-            <h3>Birthday</h3>
-            <p className='birthday'>{character?.birthday}</p>
-            <h3>Hobbies</h3>
-            <section className='hobbies'>{hobbies}</section>
-            <h3>Loved Gifts</h3>
-            <section className='gifts'>{gifts}</section>
+            <div className="hero-wrapper">
+                <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
+                <div className='name-banner'>
+                    <h2 className='profile-name'>{character?.name}</h2>
+                    {/* @ts-expect-error */}
+                    {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>}
+                </div>
+            </div>
+            {/* @ts-expect-error
+            {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>} */}
+            <section className='profile-details'>
+                <h3>Birthday</h3>
+                <p className='birthday'>{character?.birthday}</p>
+                <h3>Hobbies</h3>
+                <section className='hobbies'>{hobbies}</section>
+                <h3>Loved Gifts</h3>
+                <section className='gifts'>{gifts}</section>
+            </section>
             </article>}
         </>
     )

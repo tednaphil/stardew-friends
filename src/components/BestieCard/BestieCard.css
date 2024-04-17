@@ -1,0 +1,25 @@
+.bestie-card {
+    width: max-content;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 15px;
+    background: var(--sec-acc-color);
+    border: var(--border-style);
+    filter: drop-shadow(10px 10px #AD8E70);
+    & .name {
+        margin: 0;
+        margin-top: 5px;
+        font-family: 'Press Start 2P', sans-serif;
+    }
+    & a:hover, a:focus {
+        color: var(--sec-text-color);
+    }
+}
+
+.profile-link {
+    margin: 0;
+    margin-top: 8px;
+}

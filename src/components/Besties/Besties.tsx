@@ -35,10 +35,12 @@ function Besties({besties, setBesties}: Props) {
     }
 
     return (
-        <article className='besties'>
+        <>
             <h2 className='bestie-count'>{bestieCount(besties)}</h2>
-            {bestieCards}
-        </article>
+            <article className='besties'>
+                {bestieCards}
+            </article>
+        </>
     )
 
 }

@@ -1,12 +1,15 @@
 .character-cards {
     text-align: center;
+    margin-top: 30px;
 }
+
 .character-card {
     display: inline-block;
     width: max-content;
+    margin: 0 5px;
     & :hover {
         cursor: pointer;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }
 
@@ -17,6 +20,7 @@ a {
 
 .loading-screen {
     text-align: center;
+    margin-top: 30px;
     & .loading-message {
         font-weight: 300;
         color: var(--sec-bg-color)
@@ -26,12 +30,3 @@ a {
 .loading-image {
     width: 80px;
 }
-
-/* section {
-    display: inline-block;
-    width: max-content;
-    & :hover {
-        cursor: pointer;
-        transform: scale(1.2);
-    }
-} */

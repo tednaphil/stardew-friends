@@ -1,0 +1,19 @@
+.bestie-count {
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    width: max-content;
+    font-family: 'Press Start 2P', sans-serif;
+    background: var(--main-acc-color);
+    color: var(--sec-text-color);
+    border: var(--border-style);
+    filter: var(--sec-drop-shadow);
+}
+
+.besties {
+    display: flex;
+    /* justify-content: space-evenly; */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding:30px 0;
+}
