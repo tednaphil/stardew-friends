@@ -15,13 +15,14 @@ describe('Stardew Friends User Stories', () => {
   })
   it('Displays Homepage', () => {
     cy.get('.loading-screen').contains('h2', 'Loading...')
+    .url().should('eq', 'http://localhost:3000/')
     .get('.loading-image').should('have.attr', 'src')/*.should('include', 'data:image/gif')*/
     .wait('@getCharacters')
     .get('.nav-bar').children().should('have.length', 3)
     .get('.heading').contains('Stardew Friends')
     .get('.links').contains('a', 'Home')
     .get('.links').contains('a', 'Besties')
-    .get('.search-bar').should('exist')
+    .get('.search-bar').should('have.attr', 'placeholder').should('eq', 'Search')
     .get('.character-cards').children().should('have.length', 4)
     .get('.card-wrapper').first().contains('p', 'Sandy')
     .get('.char-avatar').first().should('have.attr', 'alt').should('equal', 'Sandy avatar')
@@ -30,6 +31,7 @@ describe('Stardew Friends User Stories', () => {
   })
   it('Shows individual character profile', () => {
     cy.get('.card-wrapper').last().click()
+    .url().should('eq', 'http://localhost:3000/characters/34')
     .get('.nav-bar').children().should('have.length', 2)
     .get('.hero-wrapper').contains('h2', 'Wizard')
     .get('.profile-avatar').should('have.attr', 'alt').should('equal', 'Wizard avatar')
@@ -50,6 +52,7 @@ describe('Stardew Friends User Stories', () => {
     .get('.remove-button').should('exist')
     .get('#besties-link').click()
     // .get('#besties-link').contains('1')
+    .url().should('eq', 'http://localhost:3000/besties')
     .get('.bestie-count').contains('You have 1 bestie!')
     .get('.bestie-avatar').should('have.attr', 'alt').should('equal', 'Wizard avatar')
     .get('.name').contains('Wizard')
