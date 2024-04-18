@@ -16,6 +16,7 @@ describe('Stardew Friends User Stories', () => {
   it('Displays Homepage', () => {
     cy.get('.loading-screen').contains('h2', 'Loading...')
     .url().should('eq', 'http://localhost:3000/')
+    .get('.loading-screen').should('be.visible')
     .get('.loading-image').should('have.attr', 'src')/*.should('include', 'data:image/gif')*/
     .wait('@getCharacters')
     .get('.nav-bar').children().should('have.length', 3)

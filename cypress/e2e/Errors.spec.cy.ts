@@ -18,15 +18,14 @@ describe('Stardew Friends Error Handling', () => {
     it('Displays page not found message if bad path visited', () => {
       cy.intercept('GET', 'https://stardew-api.onrender.com/api/v1/characters',
         {
-          statusCode: 404,
+          statusCode: 200,
+          fixture: 'characters'
         }).as('badGetCharacters')
       cy.intercept('GET', 'https://stardew-api.onrender.com/api/v1/characters/badpath',
       {
         statusCode: 404,
       }).as('badGetCharacter')
       .visit('http://localhost:3000/badpath')
-      // .wait('@badGetCharacters')
-      //check url
       .get('.error-message').contains('That page doesn\'t exist') //why is this test blinking?
       .visit('http://localhost:3000/characters/badpath')
       .get('.error-message').contains('Error: We couldn\'t get that character - 404')
