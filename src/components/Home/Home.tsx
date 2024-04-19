@@ -12,8 +12,6 @@ interface Props {
     error: string
     loading: boolean
     filteredChars: Char[]
-    // search: string
-    // setSearch: (query: string) => void
 }
 
 function Home({ characters, filteredChars, error, loading }: Props) {

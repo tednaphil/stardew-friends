@@ -41,7 +41,7 @@ function App() {
   useEffect(() => {
     fetchCharacters();
     // @ts-expect-error
-    const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+    const storedBesties= JSON.parse(localStorage.getItem('besties'))
     if (!storedBesties) {
       setBesties([])
     } else {
@@ -62,6 +62,7 @@ function App() {
       setLoading(false);
     } catch(error) {
         setError(`${error}`)
+        setLoading(false);
     }
   }
 
@@ -69,9 +70,9 @@ function App() {
     if (besties.length) {
       const isBestie = besties.find(bestie => newBestie.id === bestie.id);
       if (!isBestie) {
-        sessionStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
+        localStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
         // @ts-expect-error
-        const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+        const storedBesties= JSON.parse(localStorage.getItem('besties'))
         setBesties(storedBesties)
       } else if(isBestie) {
         const name = isBestie.name
@@ -79,18 +80,18 @@ function App() {
         //refactor with a modal and useRef hook if notification still needed
       }
     } else {
-      sessionStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
+      localStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
         // @ts-expect-error
-        const storedBesties= JSON.parse(sessionStorage.getItem('besties'))
+        const storedBesties= JSON.parse(localStorage.getItem('besties'))
         setBesties(storedBesties)
     }
   }
 
   const removeBestie = (id: string) => {
     const newBesties = besties.filter(bestie => bestie.id !== id);
-    sessionStorage.setItem('besties', JSON.stringify(newBesties));
+    localStorage.setItem('besties', JSON.stringify(newBesties));
     // @ts-expect-error
-    const storedBesties= JSON.parse(sessionStorage.getItem('besties'));
+    const storedBesties= JSON.parse(localStorage.getItem('besties'));
     setBesties(storedBesties)
   }
 
