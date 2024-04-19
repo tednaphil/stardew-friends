@@ -9,7 +9,6 @@ describe('Stardew Friends Error Handling', () => {
           statusCode: 500,
         }).as('getCharacter')
       .visit('http://localhost:3000/')
-      //should i replace these urls with deployed link again once suite completed?
       .get('.error-message').contains('Error: We couldn\'t get the characters - 500')
       .visit('http://localhost:3000/characters/34')
       .get('.error-message').contains('Error: We couldn\'t get that character - 500')
@@ -26,7 +25,7 @@ describe('Stardew Friends Error Handling', () => {
         statusCode: 404,
       }).as('badGetCharacter')
       .visit('http://localhost:3000/badpath')
-      .get('.error-message').contains('That page doesn\'t exist!') //why is this test blinking?
+      .get('.error-message').contains('That page doesn\'t exist!')
       .visit('http://localhost:3000/characters/badpath')
       .get('.error-message').contains('Error: That character doesn\'t exist!')
     })
