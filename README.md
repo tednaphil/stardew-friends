@@ -1,9 +1,9 @@
 # <p align="center">🕹️[Stardew Friends](https://stardew-friends.vercel.app/)🎮</p>
 <p align="center" style="color: gold">⬆ Click the header to visit the site ⬆</a>
 
-<p align="center">There are so many friends to be made! This app helps Stardew Valley players quickly reference details about friendable NPCs and track friendships with them.</p>
+<p align="center">There are so many friends to be made and so many details to recall! This app helps Stardew Valley players quickly reference details about friendable NPCs and track friendships with them.</p>
 
-## Preview:
+## Preview
 <div align="center">
   <img src=".github/StardewFriends Demo.gif" alt="app demo">
 
@@ -24,6 +24,7 @@
 
 ## Installation Instructions
   Note: the front-end and back-end are both deployed, so installation is not needed to use the web app. FE installation is required for running tests.
+
 ### FE Installation Instructions:
 - Run the following on command line to clone the repo and run the app locally:
     ```
@@ -42,22 +43,36 @@
   node server.js
   ```
   Server will run at `http://localhost:3000`
-### Run Tests
+### Run Tests:
 - Ensure you're running the app locally (see FE Installation Instructions above)
 - Run the following on command line to open Cypress: `npm run cypress`
 - Click `E2E Testing`, then `Start E2E Testing` in desired browser
 - Select `App_spec` to run user story tests
 - Select `Error_spec` to run error handling tests
 
-## Context:
-<!-- wins, challenges, time spent, goals, approaches etc
-- ~ hours to complete test suite and functionality
+## Context
+- ~ 20 hours spent on BE, FE, and testing collectively during a 1 week sprint
+- App built during second week of self-teaching Typescript
 - Goals
   ```
+  - Thorough testing of user-stories with intercepted network requests
+  - Responsive design across mobile, tablet, and desktop devices
   ```
 - Wins
   ```
+  - Automatic deployments for UI (Vercel) and API (Render)
+  - Addition of two features beyond the MVP (search and frienship level incrementer)
   ```
-- Goals
+- Challenges
   ```
+  - Making my first Express app a consumable API - researching CORS allowed for succesful use!
+  ```
+- Next Steps
+  ```
+  - User Login
+  - Add API endpoints for PUTting or POSTing and DELETEing besties data
+  - Additional data added for each character (e.g. disliked gifts, family)
+  - Database integration
+  - Informational component explaining Stardew Valley Friendship building
+  - Refactor with class-based components
   ```
