@@ -84,7 +84,7 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
                 <div className='name-banner'>
                     <h2 className='profile-name'>{character?.name}</h2>
                     {/* @ts-expect-error */}
-                    {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>}
+                    {isBestie ? <button className='remove-button buttons' aria-label='remove button' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' aria-label='add button' onClick={() => handleAddClick(character)}><UserPlus/></button>}
                 </div>
             </div>
             <section className='profile-details'>

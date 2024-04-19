@@ -1,14 +1,12 @@
 .nav-bar {
     display: flex;
     flex-direction: column;
-    background: var(--main-bg-color);
     & a {
         font-size: 1.4rem;
-        color: var(--sec-bg-color);
         padding: 10px;
     }
     & .active {
-        color: var(--main-acc-color);
+        text-shadow: var(--sec-bg-color) 2px 0 5px;
     }
 }
 
