@@ -18,7 +18,11 @@ const getCharacter = async (id: string) => {
         const response = await fetch(`https://stardew-api.onrender.com/api/v1/characters/${id}`);
         if (!response.ok) {
             const status = response.status
-            throw new Error(`We couldn't get that character - ${status}`)
+            if(response.status === 404) {
+                throw new Error(`That character doesn't exist!`)
+            } else {
+                throw new Error(`We couldn't get that character - ${status}`)
+            }
         }
         return await response.json();
     } catch (error: unknown) {
