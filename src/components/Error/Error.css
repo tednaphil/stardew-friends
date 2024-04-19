@@ -1,0 +1,10 @@
+.error-message {
+    margin: 60px auto;
+    text-align: center;
+    padding: 50px;
+    width: 70%;
+    font-size: 2rem;
+    background: var(--sec-acc-color);
+    border: var(--border-style);
+    filter: var(--sec-drop-shadow);
+}
