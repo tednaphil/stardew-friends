@@ -55,7 +55,7 @@
     padding: 20px;
     width: 70%;
     text-align: center;
-    background:var(--sec-bg-color);
+    background: #f4e3d0;
     filter: var(--sec-drop-shadow);
     border: 18px solid transparent;
     border-radius: 18px;

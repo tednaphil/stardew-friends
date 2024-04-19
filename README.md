@@ -66,6 +66,7 @@
 - Challenges
   ```
   - Making my first Express app a consumable API - researching CORS allowed for succesful use!
+  - Increased loading time after API spins down due to inactivity
   ```
 - Next Steps
   ```

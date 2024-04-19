@@ -75,7 +75,6 @@ function App() {
       } else if(isBestie) {
         const name = isBestie.name
         alert(`${name} is already your friend!`)
-        //refactor with a modal and useRef hook if notification still needed
       }
     } else {
       localStorage.setItem('besties', JSON.stringify([...besties, newBestie]));

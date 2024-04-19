@@ -45,7 +45,6 @@ function Incrementer({ friendship, id, besties, setBesties }: Props) {
             <section className='incrementer'>
                 <button id={`${id}-down`} value='down' aria-label='down button' onClick={() => handleClick(id, 'down')}><ChevronDown/></button>
                 <p>{friendshipLevel}</p>
-                {/* how should I restrict this to a range? Should I make it a number input instead? */}
                 <button id={`${id}-up`} value='up' aria-label='up button'onClick={() => handleClick(id, 'up')}><ChevronUp /></button>
             </section>
         </>
