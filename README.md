@@ -5,7 +5,7 @@
 
 ## Preview:
 <div align="center">
-  <img src="" alt="app demo">
+  <img src=".github/StardewFriends Demo.gif" alt="app demo">
 
 </div>
 <p align="center">Technologies Used</p>
