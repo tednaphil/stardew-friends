@@ -33,7 +33,7 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
         // @ts-expect-error
         fetchCharacter(id)
         setSearch('')
-    })
+    }, [])
 
     const fetchCharacter = async (id: string) => {
         try {
@@ -56,10 +56,6 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
             <p className='gift' key={index}>{gift}</p>
         )
     })
-
-    useEffect(() => {
-        setLoading(false)
-    }, [character])
 
     const handleAddClick = (newBestie: Char) => {
         const friend = friendify(newBestie)
