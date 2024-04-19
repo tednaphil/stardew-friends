@@ -11,7 +11,6 @@ describe('Stardew Friends User Stories', () => {
         fixture: 'character'
       }).as('getCharacter')
     .visit('http://localhost:3000/')
-    //set viewport size if needed after css refactor
   })
   it('Displays Homepage', () => {
     cy.get('.loading-screen').contains('h2', 'Loading...')
@@ -22,7 +21,7 @@ describe('Stardew Friends User Stories', () => {
     .get('.nav-bar').children().should('have.length', 3)
     .get('.heading').contains('Stardew Friends')
     .get('.links').contains('a', 'Home')
-    .get('.links').contains('a', 'Besties')
+    .get('.links').contains('a', 'Besties (0)')
     .get('.search-bar').should('have.attr', 'placeholder').should('eq', 'Search')
     .get('.character-cards').children().should('have.length', 4)
     .get('.card-wrapper').first().contains('p', 'Sandy')
@@ -52,7 +51,7 @@ describe('Stardew Friends User Stories', () => {
     .get('.bestie-button').click()
     .get('.remove-button').should('exist')
     .get('#besties-link').click()
-    // .get('#besties-link').contains('1')
+    .get('#besties-link').contains('1')
     .url().should('eq', 'http://localhost:3000/besties')
     .get('.bestie-count').contains('You have 1 bestie!')
     .get('.bestie-avatar').should('have.attr', 'alt').should('equal', 'Wizard avatar')
