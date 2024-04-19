@@ -33,7 +33,6 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
         // @ts-expect-error
         fetchCharacter(id)
         setSearch('')
-
     }, [])
 
     const fetchCharacter = async (id: string) => {
@@ -43,6 +42,7 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
             setLoading(false)
         } catch(error) {
             setError(`${error}`)
+            setLoading(false)
         }
     }
    
@@ -57,10 +57,6 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
             <p className='gift' key={index}>{gift}</p>
         )
     })
-
-    useEffect(() => {
-        setLoading(false)
-    }, [character])
 
     const handleAddClick = (newBestie: Char) => {
         const friend = friendify(newBestie)
@@ -88,11 +84,9 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
                 <div className='name-banner'>
                     <h2 className='profile-name'>{character?.name}</h2>
                     {/* @ts-expect-error */}
-                    {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>}
+                    {isBestie ? <button className='remove-button buttons' aria-label='remove button' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' aria-label='add button' onClick={() => handleAddClick(character)}><UserPlus/></button>}
                 </div>
             </div>
-            {/* @ts-expect-error
-            {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>} */}
             <section className='profile-details'>
                 <h3>Birthday</h3>
                 <p className='birthday'>{character?.birthday}</p>

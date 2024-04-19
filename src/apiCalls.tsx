@@ -6,8 +6,8 @@ const getCharacters = async () => {
             throw new Error(`We couldn't get the characters - ${status}`)
         }
         return await response.json();
-    } catch (error: any) {
-        console.log('API CALLS catch block', error.message)
+    } catch (error: unknown) {
+        console.log('API CALLS catch block - characters', error)
         throw error
     }
 
@@ -18,11 +18,15 @@ const getCharacter = async (id: string) => {
         const response = await fetch(`https://stardew-api.onrender.com/api/v1/characters/${id}`);
         if (!response.ok) {
             const status = response.status
-            throw new Error(`We couldn't get that character - ${status}`)
+            if(response.status === 404) {
+                throw new Error(`That character doesn't exist!`)
+            } else {
+                throw new Error(`We couldn't get that character - ${status}`)
+            }
         }
         return await response.json();
-    } catch (error: any) {
-        console.log('API CALLS catch block', error.message)
+    } catch (error: unknown) {
+        console.log('API CALLS catch block - character', error)
         throw error
     }
 

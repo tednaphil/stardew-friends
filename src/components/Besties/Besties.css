@@ -4,6 +4,7 @@
     font-size: 1.2rem;
     width: max-content;
     font-family: 'Press Start 2P', sans-serif;
+    text-align: center;
     background: var(--main-acc-color);
     color: var(--sec-text-color);
     border: var(--border-style);
@@ -12,8 +13,14 @@
 
 .besties {
     display: flex;
-    /* justify-content: space-evenly; */
     justify-content: space-around;
     flex-wrap: wrap;
     padding:30px 0;
 }
+
+@media screen and (max-width: 767px) {
+    .bestie-count {
+        width: 75%;
+        line-height: 1.5rem;
+    }
+  }

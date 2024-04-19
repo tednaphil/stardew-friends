@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import Nav from '../Nav/Nav';
 import Home from '../Home/Home';
@@ -30,13 +29,12 @@ export type Friend = {
 }
 
 function App() {
-  const [error, setError] = useState<any>('');
+  const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState(true)
   const [characters, setCharacters] = useState<Char[]>([]);
   const [besties, setBesties] = useState<Friend[]>([]);
   const [search, setSearch] = useState<string>('');
   const [filteredChars, setFilteredChars] = useState<Char[]>([])
-  //make besties global state?
 
   useEffect(() => {
     fetchCharacters();
@@ -77,7 +75,6 @@ function App() {
       } else if(isBestie) {
         const name = isBestie.name
         alert(`${name} is already your friend!`)
-        //refactor with a modal and useRef hook if notification still needed
       }
     } else {
       localStorage.setItem('besties', JSON.stringify([...besties, newBestie]));
@@ -96,16 +93,14 @@ function App() {
   }
 
   useEffect(() => {
+    const filterChars = (search: string) => {
+      setFilteredChars(
+        characters.filter(char =>
+          char.name.toLowerCase().includes(search.toLowerCase()),
+        ));
+    };
     filterChars(search)
-  }, [search])
-
-  const filterChars = (search: string) => {
-    setFilteredChars(
-      characters.filter(char =>
-        char.name.toLowerCase().includes(search.toLowerCase()),
-      ),
-    );
-  };
+  }, [search, characters])
 
 
   return (
@@ -113,13 +108,12 @@ function App() {
       <Nav search={search} setSearch={setSearch} besties={besties}/>
       <main className="main">
         <Routes>
-          <Route path='/' element={<Home characters={characters} filteredChars={filteredChars} error={error} loading={loading} />} />
+          <Route path='/' element={<Home filteredChars={filteredChars} error={error} loading={loading} />} />
           <Route path='/characters/:id' element={<Profile addBestie={addBestie} removeBestie={removeBestie} besties={besties} setSearch={setSearch}/>} />
           <Route path='/besties' element={<Besties besties={besties} setBesties={setBesties}/>} />
           <Route path='/*' element={<Error error={error}/>} />
         </Routes>
       </main>
-
     </div>
   );
 }

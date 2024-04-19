@@ -20,7 +20,6 @@ function BestieCard({ id, name, avatar, friendship, besties, setBesties }: Props
             <Link to={`/characters/${id}`}>
                 <p className='profile-link'>View Profile</p>
             </Link>
-            {/* <p>{`Friendship level: ${friendship}`}</p> */}
             <Incrementer friendship={friendship} id={id} besties={besties} setBesties={setBesties}/>
         </section>
     )

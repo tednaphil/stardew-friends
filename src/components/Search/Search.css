@@ -1,12 +1,11 @@
 .search-bar {
     padding-left: 10px;
-    /* background: transparent; */
     height: 40px;
     width: 200px;
     border-radius: 20px;
     border: .5px solid var(--sec-bg-color);
     margin-left: auto;
-    margin-right: 5px;
+    margin-right: 25px;
     margin-top: -45px;
     margin-bottom: 10px;
 }
@@ -16,3 +15,9 @@
     opacity: 0.5;
     letter-spacing: .2rem;
 }
+
+@media screen and (max-width: 767px) {
+    .search-bar {
+        margin: 8px auto;
+    }
+  }
