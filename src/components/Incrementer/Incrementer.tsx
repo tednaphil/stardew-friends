@@ -27,7 +27,6 @@ function Incrementer({ friendship, id, besties, setBesties }: Props) {
             if (bestie.id === id) {
                 bestie.friendship = newLevel
             }
-        // console.log(currentBesties);
         localStorage.clear();
         localStorage.setItem('besties', JSON.stringify(currentBesties));
         // @ts-expect-error

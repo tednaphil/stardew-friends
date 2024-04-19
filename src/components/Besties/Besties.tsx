@@ -1,5 +1,5 @@
 import './Besties.css';
-import type { Char, Friend } from '../App/App';
+import type { Friend } from '../App/App';
 import BestieCard from '../BestieCard/BestieCard';
 
 interface Props {
@@ -42,7 +42,6 @@ function Besties({besties, setBesties}: Props) {
             </article>
         </>
     )
-
 }
 
 export default Besties

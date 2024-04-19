@@ -12,19 +12,6 @@ interface Props {
 }
 
 function Home({ filteredChars, error, loading }: Props) {
-
-    // const cards = characters.map(element => {
-    //     const {id, name, avatar} = element
-    //     return (
-    //         <Link to={`/characters/${id}`} key={id}>
-    //             <section className='character-card'>
-    //             <img src={avatar} alt={`${name} avatar`} className='char-avatar'/>
-    //             <p>{name}</p>
-    //             </section>
-    //         </Link>
-    //     )
-    // })
-
     const cards = filteredChars.map(element => {
         const {id, name, avatar} = element
         return (

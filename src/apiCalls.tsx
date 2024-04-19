@@ -6,8 +6,8 @@ const getCharacters = async () => {
             throw new Error(`We couldn't get the characters - ${status}`)
         }
         return await response.json();
-    } catch (error: any) {
-        console.log('API CALLS catch block', error.message)
+    } catch (error: unknown) {
+        console.log('API CALLS catch block - characters', error)
         throw error
     }
 
@@ -21,8 +21,8 @@ const getCharacter = async (id: string) => {
             throw new Error(`We couldn't get that character - ${status}`)
         }
         return await response.json();
-    } catch (error: any) {
-        console.log('API CALLS catch block', error.message)
+    } catch (error: unknown) {
+        console.log('API CALLS catch block - character', error)
         throw error
     }
 

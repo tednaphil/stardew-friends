@@ -30,7 +30,7 @@ export type Friend = {
 }
 
 function App() {
-  const [error, setError] = useState<any>('');
+  const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState(true)
   const [characters, setCharacters] = useState<Char[]>([]);
   const [besties, setBesties] = useState<Friend[]>([]);
@@ -99,8 +99,7 @@ function App() {
       setFilteredChars(
         characters.filter(char =>
           char.name.toLowerCase().includes(search.toLowerCase()),
-        ),
-      );
+        ));
     };
     filterChars(search)
   }, [search, characters])

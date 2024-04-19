@@ -33,8 +33,7 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
         // @ts-expect-error
         fetchCharacter(id)
         setSearch('')
-
-    }, [])
+    })
 
     const fetchCharacter = async (id: string) => {
         try {
@@ -91,8 +90,6 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
                     {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>}
                 </div>
             </div>
-            {/* @ts-expect-error
-            {isBestie ? <button className='remove-button buttons' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' onClick={() => handleAddClick(character)}><UserPlus/></button>} */}
             <section className='profile-details'>
                 <h3>Birthday</h3>
                 <p className='birthday'>{character?.birthday}</p>
