@@ -1,20 +1,17 @@
 import './Home.css';
 import type { Char } from '../App/App';
 import Error from '../Error/Error';
-import { Link, useParams } from 'react-router-dom';
-import { useState } from 'react';
-import Character from '../Character/Character';
+import { Link} from 'react-router-dom';
 import Junimo from '../../images/Junimo.gif';
 
 
 interface Props {
-    characters: Char[]
     error: string
     loading: boolean
     filteredChars: Char[]
 }
 
-function Home({ characters, filteredChars, error, loading }: Props) {
+function Home({ filteredChars, error, loading }: Props) {
 
     // const cards = characters.map(element => {
     //     const {id, name, avatar} = element
