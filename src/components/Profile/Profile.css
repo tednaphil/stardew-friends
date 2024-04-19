@@ -80,3 +80,19 @@
 .hobby, .gift {
     padding: 0 5px;
 }
+
+@media screen and (max-width: 767px) {
+    .char-profile {
+        flex-direction: column;
+    }
+
+    .hero-wrapper {
+        margin: 20px auto;
+    }
+
+    .profile-details {
+        margin: 5px auto;
+        margin-bottom: 20px;
+        width: 85%
+    }
+  }
