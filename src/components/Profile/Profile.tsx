@@ -42,6 +42,7 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
             setLoading(false)
         } catch(error) {
             setError(`${error}`)
+            setLoading(false)
         }
     }
    
