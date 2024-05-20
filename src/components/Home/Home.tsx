@@ -17,7 +17,7 @@ function Home({ filteredChars, error, loading }: Props) {
         return (
             <Link to={`/characters/${id}`} key={id} className='character-card'>
                 <section className='card-wrapper'>
-                    <img src={avatar} alt={`${name} avatar`} className='char-avatar'/>
+                    <img crossOrigin='anonymous' src={avatar} alt={`${name} avatar`} className='char-avatar'/>
                     <p>{name}</p>
                 </section>
             </Link>
