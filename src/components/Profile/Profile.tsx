@@ -80,7 +80,7 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
             </article>}
             {error ? <Error error={error}/> : <article className='char-profile'>
             <div className="hero-wrapper">
-                <img crossOrigin='anonymous' src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
+                <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
                 <div className='name-banner'>
                     <h2 className='profile-name'>{character?.name}</h2>
                     {/* @ts-expect-error */}
