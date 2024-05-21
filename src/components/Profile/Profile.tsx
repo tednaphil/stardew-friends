@@ -78,9 +78,10 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
                 <img src={Junimo} alt='Dancing green Junimo' className='loading-image'/>
                 <h2 className='loading-message'>Loading...</h2>
             </article>}
-            {error ? <Error error={error}/> : <article className='char-profile'>
+            {error && <Error error={error}/>}
+            {character && <article className='char-profile'>
             <div className="hero-wrapper">
-                <img src={character?.avatar} alt={`${character?.name} avatar`} className='profile-avatar'/>
+                <img src={require(`../../images/${character?.name}.png`)} alt={`${character?.name} avatar`} className='profile-avatar'/>
                 <div className='name-banner'>
                     <h2 className='profile-name'>{character?.name}</h2>
                     {/* @ts-expect-error */}
@@ -96,6 +97,7 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
                 <section className='gifts'>{gifts}</section>
             </section>
             </article>}
+            
         </>
     )
 }
