@@ -1,6 +1,6 @@
 const getCharacters = async () => {
     try {
-        const response = await fetch('https://stardew-api.onrender.com/api/v1/characters');
+        const response = await fetch('https://ruby-stardew-api.onrender.com/characters');
         if (!response.ok) {
             const status = response.status
             throw new Error(`We couldn't get the characters - ${status}`)
@@ -13,9 +13,9 @@ const getCharacters = async () => {
 
 }
 
-const getCharacter = async (id: string) => {
+const getCharacter = async (id: number) => {
     try {
-        const response = await fetch(`https://stardew-api.onrender.com/api/v1/characters/${id}`);
+        const response = await fetch(`https://ruby-stardew-api.onrender.com/characters/${id}`);
         if (!response.ok) {
             const status = response.status
             if(response.status === 404) {
