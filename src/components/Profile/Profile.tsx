@@ -35,7 +35,7 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
         setSearch('')
     }, [])
 
-    const fetchCharacter = async (id: string) => {
+    const fetchCharacter = async (id: number) => {
         try {
             const character = await getCharacter(id)
             setCharacter(character)

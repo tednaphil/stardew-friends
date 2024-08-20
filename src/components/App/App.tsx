@@ -14,8 +14,8 @@ export type Char = {
   name: string
   birthday: string
   hobbies: string[]
-  avatar: string
   favGifts: string[]
+  // avatar: string
 }
 
 export type Friend = {
@@ -23,9 +23,9 @@ export type Friend = {
   name: string
   birthday: string
   hobbies: string[]
-  avatar: string
   favGifts: string[]
   friendship: number
+  // avatar: string
 }
 
 function App() {

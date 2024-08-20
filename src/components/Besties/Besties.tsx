@@ -13,7 +13,7 @@ function Besties({besties, setBesties}: Props) {
             <BestieCard 
                 key={bestie.id}
                 name={bestie.name}
-                avatar={bestie.avatar}
+                // avatar={bestie.avatar}
                 friendship={bestie.friendship}
                 id={bestie.id}
                 besties={besties}

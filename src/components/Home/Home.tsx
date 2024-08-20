@@ -13,7 +13,7 @@ interface Props {
 
 function Home({ filteredChars, error, loading }: Props) {
     const cards = filteredChars.map(element => {
-        const {id, name, avatar} = element
+        const {id, name/*, avatar*/} = element
         return (
             <Link to={`/characters/${id}`} key={id} className='character-card'>
                 <section className='card-wrapper'>

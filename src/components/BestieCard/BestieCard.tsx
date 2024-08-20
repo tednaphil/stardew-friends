@@ -6,13 +6,13 @@ import Incrementer from '../Incrementer/Incrementer';
 interface Props {
     id: string
     name: string
-    avatar: string
+    // avatar: string
     friendship: number
     besties: Friend[]
     setBesties: (array: Friend[]) => void
 }
 
-function BestieCard({ id, name, avatar, friendship, besties, setBesties }: Props) {
+function BestieCard({ id, name, /*avatar,*/ friendship, besties, setBesties }: Props) {
     return (
         <section className='bestie-card'>
             <img className='bestie-avatar'src={require(`../../images/${name}.png`)} alt={`${name} avatar`}/>
