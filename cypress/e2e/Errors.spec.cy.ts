@@ -1,10 +1,10 @@
 describe('Stardew Friends Error Handling', () => {
     it('Displays error message if server is down', () => {
-      cy.intercept('GET', 'https://stardew-api.onrender.com/api/v1/characters',
+      cy.intercept('GET', 'https://ruby-stardew-api.onrender.com/characters',
         {
           statusCode: 500,
         }).as('getCharacters')
-      cy.intercept('GET', 'https://stardew-api.onrender.com/api/v1/characters/34',
+      cy.intercept('GET', 'https://ruby-stardew-api.onrender.com/characters/34',
         {
           statusCode: 500,
         }).as('getCharacter')
@@ -15,12 +15,12 @@ describe('Stardew Friends Error Handling', () => {
     })
 
     it('Displays page not found message if bad path visited', () => {
-      cy.intercept('GET', 'https://stardew-api.onrender.com/api/v1/characters',
+      cy.intercept('GET', 'https://ruby-stardew-api.onrender.com/characters',
         {
           statusCode: 200,
           fixture: 'characters'
         }).as('badGetCharacters')
-      cy.intercept('GET', 'https://stardew-api.onrender.com/api/v1/characters/badpath',
+      cy.intercept('GET', 'https://ruby-stardew-api.onrender.com/characters/badpath',
       {
         statusCode: 404,
       }).as('badGetCharacter')

@@ -1,11 +1,11 @@
 describe('Stardew Friends User Stories', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'https://stardew-api.onrender.com/api/v1/characters',
+    cy.intercept('GET', 'https://ruby-stardew-api.onrender.com/characters',
       {
         statusCode: 200,
         fixture: 'characters'
       }).as('getCharacters')
-    cy.intercept('GET', 'https://stardew-api.onrender.com/api/v1/characters/34',
+    cy.intercept('GET', 'https://ruby-stardew-api.onrender.com/characters/34',
       {
         statusCode: 200,
         fixture: 'character'
@@ -16,8 +16,8 @@ describe('Stardew Friends User Stories', () => {
     cy.get('.loading-screen').contains('h2', 'Loading...')
     .url().should('eq', 'http://localhost:3000/')
     .get('.loading-screen').should('be.visible')
-    .get('.loading-image').should('have.attr', 'src')/*.should('include', 'data:image/gif')*/
-    .wait('@getCharacters')
+    .get('.loading-image').should('have.attr', 'src')
+    .wait('@getCharacters').then(interception => {})
     .get('.nav-bar').children().should('have.length', 3)
     .get('.heading').contains('Stardew Friends')
     .get('.links').contains('a', 'Home')
