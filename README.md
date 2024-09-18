@@ -13,7 +13,6 @@
   <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=for-the-badge" alt="typescript badge">
   <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff&style=for-the-badge" alt="html badge">
   <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff&style=for-the-badge" alt="css badge">
-  <img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?logo=visualstudiocode&logoColor=fff&style=for-the-badge" alt="vscode badge">
   <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge" alt="react badge">
   <img src="https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=fff&style=for-the-badge" alt="react router badge">
   <img src="https://img.shields.io/badge/Cypress-69D3A7?logo=cypress&logoColor=fff&style=for-the-badge" alt="cypress badge">
@@ -34,15 +33,28 @@
     npm start
     ```
 ### BE Installation Instructions:
-- Link to [BE repo](https://github.com/tednaphil/stardew-api)
-- Deployed API link `https://stardew-api.onrender.com`
-- Run the following on command line to clone the repo and run the server locally:
-  ```
-  git clone git@github.com:tednaphil/stardew-api.git
-  cd stardew-api
-  node server.js
-  ```
-  Server will run at `http://localhost:3000`
+- Link to [BE repo](https://github.com/tednaphil/ruby-stardew-api)
+- Deployed API link `https://ruby-stardew-api.onrender.com`
+- Run the following on the command line to clone the repo and navigate into the project directory
+    ```
+    git clone https://github.com/tednaphil/ruby-stardew-api.git
+    cd ruby-stardew-api
+    ```
+- Install gems
+    ```
+    bundle install
+    ```
+- Setup the database
+    ```
+    rails db:{drop,create,migrate}
+    ```
+- Start the server locally - server will run at `http://localhost:3000`
+    ```
+    rails server
+    ```
+
+> - To stop the server, use `Ctrl` + `C` in the open terminal
+
 ### Run Tests:
 - Ensure you're running the app locally (see FE Installation Instructions above)
 - Run the following on command line to open Cypress: `npm run cypress`
@@ -66,7 +78,7 @@
   ```
 - Challenges
   ```
-  - Making my first Express app a consumable API - researching CORS allowed for succesful use!
+  - Making first Express app a consumable API - researching CORS allowed for succesful use!
   - Increased loading time after API spins down due to inactivity
   ```
 - Next Steps
