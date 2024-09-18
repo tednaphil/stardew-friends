@@ -12,7 +12,7 @@ const getCharacters = async () => {
 
 }
 
-const getCharacter = async (id: number) => {
+const getCharacter = async (id: string | undefined) => {
     try {
         const response = await fetch(`https://ruby-stardew-api.onrender.com/characters/${id}`);
         if (!response.ok) {

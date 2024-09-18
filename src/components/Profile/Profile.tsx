@@ -16,7 +16,7 @@ interface Props {
 }
 
 function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
-    const { id } = useParams<string>()
+    const { id } = useParams()
     const [character, setCharacter] = useState<Char | null>(null)
     const [error, setError] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(character ? false : true)
@@ -30,12 +30,11 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
     })
 
     useEffect(() => {
-        // @ts-expect-error
         fetchCharacter(id)
         setSearch('')
-    }, [])
+    })
 
-    const fetchCharacter = async (id: number) => {
+    const fetchCharacter = async (id: string | undefined) => {
         try {
             const character = await getCharacter(id)
             setCharacter(character)
