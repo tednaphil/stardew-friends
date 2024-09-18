@@ -29,9 +29,10 @@ function Incrementer({ friendship, id, besties, setBesties }: Props) {
             }
         localStorage.clear();
         localStorage.setItem('besties', JSON.stringify(currentBesties));
-        // @ts-expect-error
-        const storedBesties= JSON.parse(localStorage.getItem('besties'))
-        setBesties(storedBesties)
+        const storedBesties = localStorage.getItem('besties')
+        if(storedBesties) {
+            setBesties(JSON.parse(storedBesties))
+        }
         })
     }
 
