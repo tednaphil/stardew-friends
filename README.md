@@ -78,7 +78,7 @@
   ```
 - Challenges
   ```
-  - Making my first Express app a consumable API - researching CORS allowed for succesful use!
+  - Making first Express app a consumable API - researching CORS allowed for succesful use!
   - Increased loading time after API spins down due to inactivity
   ```
 - Next Steps
@@ -86,7 +86,5 @@
   - User Login
   - Add API endpoints for PUTting or POSTing and DELETEing besties data
   - Additional data added for each character (e.g. disliked gifts, family)
-  - Database integration
   - Informational component explaining Stardew Valley Friendship building
-  - Refactor with class-based components
   ```
