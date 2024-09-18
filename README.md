@@ -22,7 +22,8 @@
 </div>
 
 ## Installation Instructions
-  Note: the front-end and back-end are both deployed, so installation is not needed to use the web app. FE installation is required for running tests.
+  >[!NOTE] 
+  > The front-end and back-end are both deployed, so installation is not needed to use the web app. FE installation is required for running tests.
 
 ### FE Installation Instructions:
 - Run the following on command line to clone the repo and run the app locally:
