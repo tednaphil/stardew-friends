@@ -62,7 +62,7 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
         addBestie(friend)
     }
 
-    const handleRemoveClick = ({id}: Friend) => {
+    const handleRemoveClick = ({id}: Char) => {
         removeBestie(id)
     }
 
@@ -83,7 +83,6 @@ function Profile({addBestie, removeBestie, besties, setSearch}: Props) {
                 <img src={require(`../../images/${character?.name}.png`)} alt={`${character?.name} avatar`} className='profile-avatar'/>
                 <div className='name-banner'>
                     <h2 className='profile-name'>{character?.name}</h2>
-                    {/* @ts-expect-error */}
                     {isBestie ? <button className='remove-button buttons' aria-label='remove button' onClick={() => handleRemoveClick(character)}><UserX/></button> : <button className='bestie-button buttons' aria-label='add button' onClick={() => handleAddClick(character)}><UserPlus/></button>}
                 </div>
             </div>
