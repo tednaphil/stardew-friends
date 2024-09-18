@@ -7,7 +7,6 @@ const getCharacters = async () => {
         }
         return await response.json();
     } catch (error: unknown) {
-        console.log('API CALLS catch block - characters', error)
         throw error
     }
 
@@ -26,7 +25,6 @@ const getCharacter = async (id: number) => {
         }
         return await response.json();
     } catch (error: unknown) {
-        console.log('API CALLS catch block - character', error)
         throw error
     }
 
