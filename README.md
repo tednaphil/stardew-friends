@@ -66,7 +66,6 @@
 ## Context
 - ~ 20 hours spent on BE, FE, and testing collectively during a 1 week sprint
 - App built during second week of self-teaching Typescript
-- See wireframe [here](https://github.com/tednaphil/stardew-friends/blob/main/StardewFriends%20Wireframe.png)
 - Goals
   ```
   - Thorough testing of user-stories with intercepted network requests
@@ -87,3 +86,8 @@
   - User Login
   - Informational component explaining Stardew Valley Friendship building
   ```
+
+  ## Wireframe:
+  <div align="center">
+  <img src="https://github.com/tednaphil/stardew-friends/blob/main/StardewFriends%20Wireframe.png" alt="mvp wireframe">
+</div>
